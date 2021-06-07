@@ -34,7 +34,17 @@
                         <input type="password" name="password" id="password" placeholder="パスワード">
                     </td>
                 </tr>
+                <tr class="border-none">
+                    <th>
+                        <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    </th>
+                    <td>
+                        <label class="" for="remember">ログイン状態を保存する</label>
+                    </td>
+                </tr>
             </table>
+            <div class="form-check">
+            </div>
             <button type="submit" class="green">メールアドレスでログイン</button>
             <p class="add">or</p>
             <button class="red">Googleでログイン</button>

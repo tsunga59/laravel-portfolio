@@ -108,6 +108,19 @@ section {
                     color: $fontColor;
                 }
             }
+            .border-none {
+                th {
+                    padding: 15px 0 0;
+                    border-bottom: none;
+                }
+                td {
+                    font-size: 1.5rem;
+                    padding: 15px 0 0;
+                    border-bottom: none;
+                    vertical-align: bottom;
+                }
+            }
+            
         }
         button {
             display: block;
