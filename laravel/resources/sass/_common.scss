@@ -25,11 +25,6 @@ section {
     height: 100%;
     margin: 0 auto;
 }
-// .fa,
-// .fas {
-//     padding: 8px;
-//     border-radius: 3px;
-// }
 a,
 button {
     transition: all .3s ease;
@@ -37,6 +32,19 @@ button {
         opacity: .7;
     }
 }
+
+// レスポンシブ
+@media screen and (max-width: 767px) {
+
+html {
+    font-size: 55%;
+}
+section {
+    padding: 40px 20px;
+}
+    
+}
+
 
 /* ユーザー登録・ログインフォーム */
 /* ============================================ */
@@ -136,6 +144,21 @@ button {
     }
 }
 
+// レスポンシブ
+@media screen and (max-width: 767px) {
+
+.register,
+.login {
+    form {
+        width: 100%;
+        padding: 80px 40px 60px;
+        margin: 0 auto;
+    }
+}
+    
+}
+
+
 /* ヘッダー */
 /* ============================================ */
 .header {
@@ -143,27 +166,27 @@ button {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: $subColor;
+    background: linear-gradient(to right, $darkBlue 0%, $lightBlue 100%);
     padding: 20px 40px;
     box-sizing: border-box;
     position: relative;
-    .username {
-        font-size: 1.8rem;
-    }
-    .title {
-        font-size: 2.2rem;
-        font-weight: bold;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    nav {
-        ul {
-            display: flex;
-            li {
-                margin-left: 20px;
-            }
-        }
-    }
+    // .username {
+    //     font-size: 1.8rem;
+    // }
+    // .title {
+    //     font-size: 2.2rem;
+    //     font-weight: bold;
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-50%, -50%);
+    // }
+    // nav {
+    //     ul {
+    //         display: flex;
+    //         li {
+    //             margin-left: 20px;
+    //         }
+    //     }
+    // }
 }
