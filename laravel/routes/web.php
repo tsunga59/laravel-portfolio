@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,19 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::prefix('login')->name('login.')->group(function() {
-    
+
     // ソーシャルログイン
     Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('{provider}');
-    Route::post('/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('{provider}.callback');
+    Route::get('/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('{provider}.callback');
+
+});
+
+Route::prefix('register')->name('register.')->group(function() {
     
+    // ソーシャルユーザー登録
+    Route::get('/{provider}', [RegisterController::class, 'showProviderUserRegistrationForm'])->name('{provider}');
+    Route::post('/{provider}', [RegisterController::class, 'registerProviderUser'])->name('{provider}');
+
 });
 
 Route::get('/', function () {

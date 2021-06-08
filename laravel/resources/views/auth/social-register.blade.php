@@ -6,8 +6,9 @@
 
 <section class="register">
     <div class="container">
-        <form action="{{ url('/register') }}" method="post">
+        <form action="{{ route('register.{provider}', ['provider' => $provider]) }}" method="post">
             @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
             <!-- エラーメッセージ -->
             @if($errors->any())
                 <div class="error_area">
@@ -31,21 +32,11 @@
                         <label for="email"><i class="fas fa-envelope"></i></label>
                     </th>
                     <td>
-                        <input type="email" name="email" id="email" placeholder="メールアドレス" value="{{ old('email') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label for="password"><i class="fas fa-lock"></i></label>
-                    </th>
-                    <td>
-                        <input type="password" name="password" id="password" placeholder="パスワード(8文字以上)">
+                        <input type="email" name="email" id="email" placeholder="メールアドレス" value="{{ $email }}" disabled>
                     </td>
                 </tr>
             </table>
-            <button type="submit" class="btn green">メールアドレスで登録</button>
-            <p class="add">or</p>
-            <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn red">Googleで登録</a>
+            <button type="submit" class="btn red">Googleで登録</button>
             <a href="{{ route('login') }}" class="redirect">ログインはこちら</a>
         </form>
     </div>
