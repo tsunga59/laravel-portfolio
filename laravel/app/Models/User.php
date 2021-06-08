@@ -18,6 +18,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'profile_image',
+        'self_introduction',
+        'wakeup_time',
         'email',
         'password',
     ];
@@ -28,6 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        'wakeup_time_range',
         'password',
         'remember_token',
     ];
