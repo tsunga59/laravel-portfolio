@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             // 'profile_image' => 'string',
             // 'self_introduction' => 'string|max:300',
             'email' => 'required|string|max:255|email|unique:users',
-            'password' => 'required|string|max:255|min:8|regex:/^[a-zA-Z0-9]+$/',
+            'password' => 'required|string|min:8|max:255||regex:/^[a-zA-Z0-9]+$/',
         ];
     }
 

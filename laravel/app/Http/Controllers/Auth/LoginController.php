@@ -48,8 +48,8 @@ class LoginController extends Controller
     {
         $request->validate(
             [
-                $this->username() => 'required|max:255|email',
-                'password' => 'required|min:8|max:255|regex:/^[a-zA-Z0-9]+$/',
+                $this->username() => 'required|string|max:255|email',
+                'password' => 'required|string|min:8|max:255|regex:/^[a-zA-Z0-9]+$/',
             ],
             [
                 'password.regex' => ':attributeは半角英数字で入力してください。',
@@ -58,7 +58,7 @@ class LoginController extends Controller
     }
 
     /**
-     * ログアウト後の遷移先を変更
+     * ログアウト時の遷移先を変更
      * 
      * @return RedirectResponse
      */
