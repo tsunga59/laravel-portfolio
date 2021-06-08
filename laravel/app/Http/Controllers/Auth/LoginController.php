@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -55,6 +57,44 @@ class LoginController extends Controller
                 'password.regex' => ':attributeは半角英数字で入力してください。',
             ],
         );
+    }
+
+    /**
+     * ソーシャルログイン画面に遷移
+     * 
+     * @param string $provider
+     * @return RedirectResponse
+     */
+    public function redirectToProvider(string $provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * ソーシャルログイン
+     * 
+     * @param Request $request, string $provider
+     * @return RedirectResponse
+     */
+    public function handleProviderCallback(Request $request, string $provider)
+    {
+        // ユーザー情報取得
+        $providerUser = Socialite::driver($provider)->stateless()->user();
+        $user = User::where('email', $providerUser->getEmail())->first();
+
+        // 既にアカウントがあればそのままログイン
+        if($user) {
+            $this->guard()->login($user, true);
+            return $this->sendLoginResponse($request);
+        }
+
+        // アカウントがなければ登録画面に遷移
+        return redirect()->route('register.{provider}', [
+            'provider' => $provider,
+            'email' => $providerUser->getEmail(),
+            'token' => $providerUser->token,
+        ]);
+
     }
 
     /**

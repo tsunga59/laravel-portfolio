@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +17,31 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::prefix('login')->name('login.')->group(function() {
+
+    // ソーシャルログイン
+    Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('{provider}');
+    Route::get('/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('{provider}.callback');
+
+});
+
+Route::prefix('register')->name('register.')->group(function() {
+    
+    // ソーシャルユーザー登録
+    Route::get('/{provider}', [RegisterController::class, 'showProviderUserRegistrationForm'])->name('{provider}');
+    Route::post('/{provider}', [RegisterController::class, 'registerProviderUser'])->name('{provider}');
+
+});
+
 Route::get('/', function () {
     return view('articles.index');
 });
 
-// Route::prefix('articles')->name('articles.')->group(['middleware' => ['auth']], function() {
-//     Route::get('/', 'ArticleController::class', 'index')->name('articles.index');
-// });
+// Route::group(['middleware' => ['auth']], function() {
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//     // 投稿関連処理
+//     Route::prefix('articles')->name('articles.')->group(function() {
+//         Route::get('/', 'ArticleController::class', 'index')->name('articles.index');
+//     });
+
+// });

@@ -122,7 +122,7 @@ section {
             }
             
         }
-        button {
+        .btn {
             display: block;
             font-weight: bold;
             text-align: center;
@@ -148,7 +148,7 @@ section {
             color: $darkGray;
             margin: 5px 0;
         }
-        a {
+        .redirect {
             display: block;
             text-align: center;
             color: $darkGray;

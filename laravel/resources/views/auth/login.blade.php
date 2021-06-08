@@ -45,11 +45,11 @@
             </table>
             <div class="form-check">
             </div>
-            <button type="submit" class="green">メールアドレスでログイン</button>
+            <button type="submit" class="btn green">メールアドレスでログイン</button>
             <p class="add">or</p>
-            <button class="red">Googleでログイン</button>
-            <button class="gray">ゲストでログイン</button>
-            <a href="{{ route('register') }}">ユーザー登録はこちら</a>
+            <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn red">Googleでログイン</a>
+            <a href="{{ route('login') }}" class="btn gray">ゲストでログイン</a>
+            <a href="{{ route('register') }}" class="redirect">ユーザー登録はこちら</a>
         </form>
     </div>
 </section>
