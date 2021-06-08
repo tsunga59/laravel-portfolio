@@ -39,7 +39,7 @@
                         <label for="password"><i class="fas fa-lock"></i></label>
                     </th>
                     <td>
-                        <input type="password" name="password" id="password" placeholder="パスワード">
+                        <input type="password" name="password" id="password" placeholder="パスワード(8文字以上)">
                     </td>
                 </tr>
             </table>
