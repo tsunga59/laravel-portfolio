@@ -48,7 +48,7 @@
             <button type="submit" class="btn green">メールアドレスでログイン</button>
             <p class="add">or</p>
             <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn red">Googleでログイン</a>
-            <a href="{{ route('login') }}" class="btn gray">ゲストでログイン</a>
+            <a href="{{ route('login.guest') }}" class="btn gray">ゲストログイン</a>
             <a href="{{ route('register') }}" class="redirect">ユーザー登録はこちら</a>
         </form>
     </div>

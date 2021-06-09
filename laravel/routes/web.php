@@ -18,19 +18,17 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::prefix('login')->name('login.')->group(function() {
-
+    // ゲストログイン
+    Route::get('/guest', [LoginController::class, 'guestLogin'])->name('guest');
     // ソーシャルログイン
     Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('{provider}');
     Route::get('/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('{provider}.callback');
-
 });
 
 Route::prefix('register')->name('register.')->group(function() {
-    
     // ソーシャルユーザー登録
     Route::get('/{provider}', [RegisterController::class, 'showProviderUserRegistrationForm'])->name('{provider}');
     Route::post('/{provider}', [RegisterController::class, 'registerProviderUser'])->name('{provider}');
-
 });
 
 Route::get('/', function () {
