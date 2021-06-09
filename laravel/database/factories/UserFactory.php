@@ -23,10 +23,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            // ゲストユーザー情報
-            'name' => 'ゲストユーザー',
-            'email' => 'guest@com',
-            'password' => 'guestpassword',
+            // ゲストユーザー情報を登録
+            // 'name' => 'ゲストユーザー',
+            // 'email' => 'guest@com',
+            // 'password' => 'guestpassword',
         ];
     }
 

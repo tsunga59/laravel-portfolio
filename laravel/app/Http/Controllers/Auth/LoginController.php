@@ -108,8 +108,7 @@ class LoginController extends Controller
     public function guestLogin()
     {
         if(Auth::loginUsingId(self::GUEST_USER_ID)) {
-                return redirect($this->redirectPath());
-            //     // return redirect()->route('articles.index');
+            return redirect($this->redirectPath());
         }
     }
 
