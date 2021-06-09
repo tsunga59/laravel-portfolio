@@ -36,7 +36,6 @@ Route::prefix('register')->name('register.')->group(function() {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-
     // 投稿関連処理
     Route::prefix('articles')->name('articles.')->group(function() {
         Route::get('/create', [ArticleController::class, 'create'])->name('create');
@@ -46,5 +45,4 @@ Route::group(['middleware' => ['auth']], function() {
         Route::put('/{article}', [ArticleController::class, 'update'])->name('update');
         Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
     });
-
 });

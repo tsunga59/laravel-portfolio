@@ -3,6 +3,7 @@
 <br>
 {{ Auth::user()->email }}
 <br>
+<a href="{{ route('articles.create') }}">投稿する</a>
 <br>
 <form id="logout-button" method="POST" action="{{ route('logout') }}">
     @csrf
