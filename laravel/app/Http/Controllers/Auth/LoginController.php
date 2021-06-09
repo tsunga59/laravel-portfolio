@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -94,7 +95,22 @@ class LoginController extends Controller
             'email' => $providerUser->getEmail(),
             'token' => $providerUser->token,
         ]);
+    }
 
+    /**
+     * ゲストログイン
+     * 
+     * @return RedirectResponse
+     */
+    // ゲストユーザー情報
+    private const GUEST_USER_ID = 1;
+
+    public function guestLogin()
+    {
+        if(Auth::loginUsingId(self::GUEST_USER_ID)) {
+                return redirect($this->redirectPath());
+            //     // return redirect()->route('articles.index');
+        }
     }
 
     /**
