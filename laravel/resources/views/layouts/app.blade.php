@@ -20,6 +20,7 @@
 </head>
 <body>
     <div id="app">
+        <x-header></x-header>
         @yield('content')
     </div>
 </body>

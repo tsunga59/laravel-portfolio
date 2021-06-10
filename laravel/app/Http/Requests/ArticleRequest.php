@@ -27,4 +27,11 @@ class ArticleRequest extends FormRequest
             'content' => 'required|string|max:500',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'content' => '本文',
+        ];
+    }
 }

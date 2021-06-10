@@ -1,4 +1,8 @@
-@auth
+@extends('layouts.app')
+
+@section('title', '記事一覧')
+
+{{-- @auth
 {{ Auth::user()->name }}
 <br>
 {{ Auth::user()->email }}
@@ -12,4 +16,4 @@
 @else
 <a href="{{ route('register') }}">ユーザー登録</a>
 <a href="{{ route('login') }}">ログイン</a>
-@endauth
+@endauth --}}
