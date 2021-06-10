@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="index">
+<section class="articles index">
     <div class="container">
         {{-- @foreach($articles as $article) --}}
         <div class="card">
@@ -31,8 +31,8 @@
                 {{-- {!! nl2br(e($article->content)) !!} --}}
                 <p>テキストテキストテキスト<br>テキストテキストテキストテキスト</p>
                 <div class="tag_area">
-                    <span>#朝活</span>
-                    <span>#目標</span>
+                    <a href="">#朝活</a>
+                    <a href="">#目標</a>
                 </div>
             </div>
             <div class="reaction_area">

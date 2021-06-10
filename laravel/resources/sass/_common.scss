@@ -32,6 +32,16 @@ button {
         opacity: .7;
     }
 }
+.error_area {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid $accentColor;
+    border-radius: 3px;
+    p {
+        font-size: 1.5rem;
+        color: $accentColor;
+    }
+}
 .sp {
     display: none;
 }
@@ -74,16 +84,6 @@ section {
         box-shadow: 0 0 8px rgba($color: $fontColor, $alpha: .5);
         border-radius: 5px;
         position: relative;
-        .error_area {
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            border: 1px solid $accentColor;
-            border-radius: 3px;
-            p {
-                font-size: 1.5rem;
-                color: $accentColor;
-            }
-        }
         h2 {
             font-size: 2rem;
             text-align: center;

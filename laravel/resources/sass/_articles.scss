@@ -1,3 +1,77 @@
+/* 共通 */
+/* ============================================ */
+.articles {
+    form {
+        width: 500px;
+        background-color: $baseColor;
+        padding: 100px 60px 80px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        box-shadow: 0 0 8px rgba($color: $fontColor, $alpha: .5);
+        border-radius: 5px;
+        position: relative;
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            width: 100%;
+            color: $baseColor;
+            background: linear-gradient(to right, $darkBlue 0%, $lightBlue 100%);
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        dl {
+            dt {
+                font-weight: normal;
+                color: $darkGray;
+                margin-bottom: 5px;
+            }
+            dd {
+                margin-bottom: 20px;
+                input,
+                textarea {
+                    color: $fontColor;
+                    width: 100%;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 1px solid $darkGray;
+                    border-radius: 5px;
+                }
+                textarea {
+                    min-height: 200px;
+                }
+            }
+        }
+        .btn {
+            display: block;
+            font-weight: bold;
+            text-align: center;
+            color: $baseColor;
+            padding: 15px 60px;
+            box-sizing: border-box;
+            margin: 40px auto 0;
+            border-radius: 30px;
+            &.green {
+                background-color: $btnColor;
+            }
+        }
+    }
+}
+
+// レスポンシブ
+@media screen and (max-width: 767px) {
+
+.articles {
+    form {
+        width: 100%;
+        padding: 80px 20px 40px;
+    }
+}
+    
+}
+
+
 /* index */
 /* ============================================ */
 .index {
@@ -80,7 +154,7 @@
             margin-bottom: 15px;
             .tag_area {
                 margin-top: 10px;
-                span {
+                a {
                     font-size: 1.5rem;
                     color: $btnColor;
                     padding: 3px 8px;
@@ -145,7 +219,15 @@
         justify-content: center;
         align-items: center;
     }
-    form {
-        
+}
+
+/* show */
+/* ============================================ */
+.show {
+    height: 100vh;
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

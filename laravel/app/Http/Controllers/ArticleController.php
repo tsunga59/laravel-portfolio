@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,6 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request, Article $article)
     {
         $article->user_id = $request->user()->id;
-        // $article->content = $request->content;
         $article->fill($request->all());
         $article->save();
 
