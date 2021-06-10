@@ -1,1 +1,9 @@
-投稿の新規作成
+@extends('layouts.app')
+
+@section('title', '新規投稿')
+
+@section('content')
+
+
+
+@endsection

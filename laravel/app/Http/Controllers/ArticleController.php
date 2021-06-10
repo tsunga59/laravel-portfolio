@@ -37,7 +37,12 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request, Article $article)
     {
+        $article->user_id = $request->user()->id;
+        // $article->content = $request->content;
+        $article->fill($request->all());
+        $article->save();
 
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -81,6 +86,6 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        
+
     }
 }

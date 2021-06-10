@@ -1,19 +1,57 @@
 @extends('layouts.app')
 
-@section('title', '記事一覧')
+@section('title', '投稿一覧')
 
-{{-- @auth
-{{ Auth::user()->name }}
-<br>
-{{ Auth::user()->email }}
-<br>
-<a href="{{ route('articles.create') }}">投稿する</a>
-<br>
-<form id="logout-button" method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit">logout</button>
-</form>
-@else
-<a href="{{ route('register') }}">ユーザー登録</a>
-<a href="{{ route('login') }}">ログイン</a>
-@endauth --}}
+@section('content')
+
+<section class="index">
+    <div class="container">
+        {{-- @foreach($articles as $article) --}}
+        <div class="card">
+            <div class="profile_area">
+                <a href="" class="profile_image">
+                    {{-- <img src=""> --}}
+                    <i class="far fa-user fa-2x"></i>
+                </a>
+                <div class="profile_text">
+                    <a href="">ユーザー名</a>
+                    <span>2021/06/10</span>
+                </div>
+                {{-- @if(Auth::id() === $article->user_id) --}}
+                    <div id="js-dropdown" class="dropdown">
+                        <span></span>
+                        <div id="js-dropdown-content" class="dropdown-content">
+                            <a href="">編集</a>
+                            <a href="">削除</a>
+                        </div>
+                    </div>
+                {{-- @endif --}}
+            </div>
+            <div class="content_area">
+                {{-- {!! nl2br(e($article->content)) !!} --}}
+                <p>テキストテキストテキスト<br>テキストテキストテキストテキスト</p>
+                <div class="tag_area">
+                    <span>#朝活</span>
+                    <span>#目標</span>
+                </div>
+            </div>
+            <div class="reaction_area">
+                <a href="" class="comment">
+                    <i class="far fa-comment fa-lg"></i>
+                    <span>5</span>
+                </a>
+                <a href="" class="like">
+                    <i class="far fa-heart fa-lg"></i>
+                    <span>3</span>
+                </a>
+            </div>
+            <hr>
+            <div class="comment_area">
+                <a href="">すべてのコメントを見る</a>
+            </div>
+        </div>
+        {{-- @endforeach --}}
+    </div>
+</section>
+
+@endsection

@@ -18,9 +18,9 @@
             @auth
             <li class="pc"><a href="{{ route('articles.create') }}"><i class="fas fa-edit"></i>投稿する</a></li>
             <li class="sp"><a href="{{ route('articles.create') }}"><i class="fas fa-edit fa-lg"></i></a></li>
-            <li id="js-dropdown" class="dropdown">
+            <li class="dropdown">
                 <i class="far fa-user fa-lg"></i>
-                <div id="js-dropdown-content" class="dropdown-content">
+                <div class="dropdown-content">
                     <a href="">
                         {{ Auth::user()->name }}<br>
                         <span>{{ Auth::user()->email }}</span>
