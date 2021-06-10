@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
-@section('title', '投稿一覧')
+@section('title', '投稿詳細')
 
 @section('content')
 
-<section class="articles index">
+<section class="articles show">
     <div class="container">
-        @foreach($articles as $article)
         <div class="card">
             <div class="profile_area">
                 <a href="" class="profile_image">
@@ -29,7 +28,7 @@
             </div>
             <div class="content_area">
                 {{-- {!! nl2br(e($article->content)) !!} --}}
-                <a href="{{ route('articles.show', ['article' => $article]) }}">テキストテキストテキスト<br>テキストテキストテキストテキスト</a>
+                <p>テキストテキストテキスト<br>テキストテキストテキストテキスト</p>
                 <div class="tag_area">
                     <a href="">#朝活</a>
                     <a href="">#目標</a>
@@ -47,10 +46,9 @@
             </div>
             <hr>
             <div class="comment_area">
-                <a href="{{ route('articles.show', ['article' => $article]) }}">すべてのコメントを見る</a>
+                コメント一覧
             </div>
         </div>
-        @endforeach
     </div>
 </section>
 
