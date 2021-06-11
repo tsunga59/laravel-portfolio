@@ -26,10 +26,10 @@
                     <textarea name="content" id="content">{{ old('content') ?? $article->content }}</textarea>
                 </dd>
                 <dt>
-                    <label for="tag">タグ(最大3個)</label>
+                    <label for="tags">タグ(最大3個)</label>
                 </dt>
                 <dd>
-                    <input type="text" name="tag" id="tag" value="{{ old('tag') }}">
+                    <input type="text" name="tags" id="tags" value="{{ old('tags') }}">
                 </dd>
             </dl>
             <button type="submit" class="btn green">編集する</button>
