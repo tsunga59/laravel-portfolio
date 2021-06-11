@@ -28,7 +28,6 @@
                     <label for="tags">タグ(最大5個)</label>
                 </dt>
                 <dd>
-                    {{-- <input type="text" name="tags" id="tags" value="{{ old('tags') }}"> --}}
                     <article-tags-input></article-tags-input>
                 </dd>
             </dl>

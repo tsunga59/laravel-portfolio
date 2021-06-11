@@ -14,10 +14,10 @@
                     <i class="far fa-user fa-2x"></i>
                 </a>
                 <div class="profile_text">
-                    <a href="">ユーザー名</a>
-                    <span>2021/06/10</span>
+                    <a href="">{{ $article->user->name }}</a>
+                    <span>{{ $article->created_at->format('Y/m/d H:i') }}</span>
                 </div>
-                {{-- @if(Auth::id() === $article->user_id) --}}
+                @if(Auth::id() === $article->user_id)
                 <div class="profile_menu">
                     <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn pc"><i class="fas fa-edit"></i>編集</a>
                     <button form="delete-button" class="delete-btn pc" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i>削除</button>
@@ -28,15 +28,21 @@
                     @csrf
                     @method('delete')
                 </form>
-                {{-- @endif --}}
+                @endif
             </div>
             <div class="content_area">
-                {{-- {!! nl2br(e($article->content)) !!} --}}
-                <a href="{{ route('articles.show', ['article' => $article]) }}">テキストテキストテキスト<br>テキストテキストテキストテキスト</a>
-                <div class="tag_area">
-                    <a href="">#朝活</a>
-                    <a href="">#目標</a>
-                </div>
+                <a href="{{ route('articles.show', ['article' => $article]) }}">
+                    {!! nl2br(e($article->content)) !!}
+                </a>
+                @foreach($article->tags as $tag)
+                    @if($loop->first)
+                    <div class="tag_area">
+                    @endif
+                    <a href="">{{ $tag->name }}</a>
+                    @if($loop->last)
+                    </div>
+                    @endif
+                @endforeach
             </div>
             <div class="reaction_area">
                 <a href="" class="comment">

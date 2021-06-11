@@ -82,9 +82,14 @@
                     color: $btnColor;
                     padding: 3px 8px;
                     box-sizing: border-box;
-                    margin-right: 5px;
+                    margin-right: 3px;
                     border: 1px solid $btnColor;
                     border-radius: 5px;
+                    &:hover {
+                        color: $baseColor;
+                        background-color: $btnColor;
+                        opacity: 1;
+                    }
                 }
             }
         }
