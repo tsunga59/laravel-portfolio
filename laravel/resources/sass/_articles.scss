@@ -149,7 +149,7 @@
                 textarea {
                     color: $fontColor;
                     width: 100%;
-                    min-height: 200px;
+                    min-height: 230px;
                     padding: 10px;
                     box-sizing: border-box;
                     border: 1px solid $darkGray;
@@ -209,12 +209,12 @@
 
 /* index */
 /* ============================================ */
-.index {
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-}
+// .index {
+//     .container {
+//         display: flex;
+//         justify-content: center;
+//     }
+// }
 
 // レスポンシブ
 @media screen and (max-width: 767px) {

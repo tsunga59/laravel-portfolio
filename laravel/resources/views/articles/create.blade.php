@@ -25,7 +25,7 @@
                     <textarea name="content" id="content">{{ old('content') }}</textarea>
                 </dd>
                 <dt>
-                    <label for="tags">タグ(最大3個)</label>
+                    <label for="tags">タグ(最大5個)</label>
                 </dt>
                 <dd>
                     {{-- <input type="text" name="tags" id="tags" value="{{ old('tags') }}"> --}}
