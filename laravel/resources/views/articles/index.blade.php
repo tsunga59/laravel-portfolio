@@ -19,10 +19,11 @@
                 </div>
                 {{-- @if(Auth::id() === $article->user_id) --}}
                     <div id="js-dropdown" class="dropdown">
+                        <a href="{{ route('articles.edit', ['article' => $article]) }}">編集</a>
                         <span></span>
                         <div id="js-dropdown-content" class="dropdown-content">
-                            <a href="">編集</a>
-                            <a href="">削除</a>
+                            <a href="{{ route('articles.edit', ['article' => $article]) }}">編集</a>
+                            <a href="{{ route('articles.destroy', ['article' => $article]) }}">削除</a>
                         </div>
                     </div>
                 {{-- @endif --}}

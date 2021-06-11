@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('/', [ArticleController::class, 'store'])->name('store');
         Route::get('/{article}', [ArticleController::class, 'show'])->name('show');
         Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
-        Route::put('/{article}', [ArticleController::class, 'update'])->name('update');
+        Route::patch('/{article}', [ArticleController::class, 'update'])->name('update');
         Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
     });
 });
