@@ -30,7 +30,7 @@
             </li>
             <form id="logout-button" method="POST" action="{{ route('logout') }}" style="display: none;">
                 @csrf
-              </form>
+            </form>
             @endauth
         </ul>
     </nav>
