@@ -7,6 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Favicon -->
+    {{-- <link rel="shortcut icon" href="favicon.ico"> --}}
+    
     <!-- Title -->
     <title>@yield('title') | {{ config('app.name') }}</title>
 
@@ -20,7 +23,17 @@
 </head>
 <body>
     <div id="app">
+        <x-header></x-header>
         @yield('content')
     </div>
+
+    <script>
+        function confirmLogout() {
+            window.confirm('本当にログアウトしてよろしいですか？');
+        }
+        function confirmDelete() {
+            window.confirm('本当に削除してよろしいですか？');
+        }
+    </script>
 </body>
 </html>

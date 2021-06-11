@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+// トップページ(投稿一覧)
+Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
+
 Route::prefix('login')->name('login.')->group(function() {
     // ゲストログイン
     Route::get('/guest', [LoginController::class, 'guestLogin'])->name('guest');
@@ -31,15 +35,14 @@ Route::prefix('register')->name('register.')->group(function() {
     Route::post('/{provider}', [RegisterController::class, 'registerProviderUser'])->name('{provider}');
 });
 
-Route::get('/', function () {
-    return view('articles.index');
+Route::group(['middleware' => ['auth']], function() {
+    // 投稿関連処理
+    Route::prefix('articles')->name('articles.')->group(function() {
+        Route::get('/create', [ArticleController::class, 'create'])->name('create');
+        Route::post('/', [ArticleController::class, 'store'])->name('store');
+        Route::get('/{article}', [ArticleController::class, 'show'])->name('show');
+        Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
+        Route::patch('/{article}', [ArticleController::class, 'update'])->name('update');
+        Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
+    });
 });
-
-// Route::group(['middleware' => ['auth']], function() {
-
-//     // 投稿関連処理
-//     Route::prefix('articles')->name('articles.')->group(function() {
-//         Route::get('/', 'ArticleController::class', 'index')->name('articles.index');
-//     });
-
-// });

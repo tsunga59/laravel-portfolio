@@ -11,7 +11,7 @@ body {
     line-height: 1.5;
     color: $fontColor;
     background-color: $bgColor;
-    overflow-x: hidden;
+    // overflow-x: hidden;
 }
 section {
     width: 100%;
@@ -32,6 +32,19 @@ button {
         opacity: .7;
     }
 }
+.error_area {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid $accentColor;
+    border-radius: 3px;
+    p {
+        font-size: 1.5rem;
+        color: $accentColor;
+    }
+}
+.sp {
+    display: none;
+}
 
 // レスポンシブ
 @media screen and (max-width: 767px) {
@@ -41,6 +54,12 @@ html {
 }
 section {
     padding: 40px 20px;
+}
+.pc {
+    display: none;
+}
+.sp {
+    display: block;
 }
     
 }
@@ -65,16 +84,6 @@ section {
         box-shadow: 0 0 8px rgba($color: $fontColor, $alpha: .5);
         border-radius: 5px;
         position: relative;
-        .error_area {
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            border: 1px solid $accentColor;
-            border-radius: 3px;
-            p {
-                font-size: 1.5rem;
-                color: $accentColor;
-            }
-        }
         h2 {
             font-size: 2rem;
             text-align: center;
@@ -179,27 +188,117 @@ section {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    color: $baseColor;
     background: linear-gradient(to right, $darkBlue 0%, $lightBlue 100%);
     padding: 20px 40px;
     box-sizing: border-box;
     position: relative;
-    // .username {
-    //     font-size: 1.8rem;
-    // }
-    // .title {
-    //     font-size: 2.2rem;
-    //     font-weight: bold;
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    // }
-    // nav {
-    //     ul {
-    //         display: flex;
-    //         li {
-    //             margin-left: 20px;
-    //         }
-    //     }
-    // }
+    z-index: 100;
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    form {
+        min-width: 330px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        input {
+            font-size: 1.5rem;
+            color: $fontColor;
+            background-color: $baseColor;
+            width: 100%;
+            padding: 5px 20px;
+            box-sizing: border-box;
+            border-radius: 30px;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            i {
+                color: $darkGray;
+            }
+        }
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        li {
+            margin-left: 20px;
+            i {
+                margin-right: 5px;
+            }
+        }
+        .dropdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $baseColor;
+            width: 35px;
+            height: 35px;
+            border-radius: 35px;
+            position: relative;
+            i {
+                color: $darkGray;
+                margin-right: 0;
+            }
+            &:hover {
+                .dropdown-content {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            .dropdown-content {
+                color: $fontColor;
+                background-color: $baseColor;
+                width: 180px;
+                border-radius: 5px;
+                position: absolute;
+                top: 120%;
+                right: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s ease;
+                // z-index: 100;
+                a,
+                button {
+                    display: block;
+                    font-size: 1.5rem;
+                    width: 100%;
+                    color: $fontColor;
+                    padding: 15px;
+                    box-sizing: border-box;
+                    &:hover {
+                        background-color: $lightGray;
+                    }
+                    span {
+                        font-size: 1.4rem;
+                        color: $darkGray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// レスポンシブ
+@media screen and (max-width: 767px) {
+
+.header {
+    padding: 20px;
+    ul {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        .dropdown {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+        
 }

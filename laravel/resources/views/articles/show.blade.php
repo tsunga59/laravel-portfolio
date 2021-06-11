@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
-@section('title', '投稿一覧')
+@section('title', '投稿詳細')
 
 @section('content')
 
-<section class="articles index">
+<section class="articles show">
     <div class="container">
-        @foreach($articles as $article)
         <div class="card">
             <div class="profile_area">
                 <a href="" class="profile_image">
@@ -20,19 +19,15 @@
                 {{-- @if(Auth::id() === $article->user_id) --}}
                 <div class="profile_menu">
                     <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn pc"><i class="fas fa-edit"></i>編集</a>
-                    <button form="delete-button" class="delete-btn pc" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i>削除</button>
+                    <a href="{{ route('articles.destroy', ['article' => $article]) }}" class="delete-btn pc" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i>削除</a>
                     <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn sp" ><i class="fas fa-edit fa-lg"></i></a>
-                    <button form="delete-button" class="delete-btn sp" onclick="confirmDelete()"><i class="fas fa-trash-alt fa-lg"></i></button>
+                    <a href="{{ route('articles.destroy', ['article' => $article]) }}" class="delete-btn sp" onclick="confirmDelete()"><i class="fas fa-trash-alt fa-lg"></i></a>
                 </div>
-                <form id="delete-button" method="post" action="{{ route('articles.destroy', ['article' => $article]) }}" style="display: none;">
-                    @csrf
-                    @method('delete')
-                </form>
                 {{-- @endif --}}
             </div>
             <div class="content_area">
                 {{-- {!! nl2br(e($article->content)) !!} --}}
-                <a href="{{ route('articles.show', ['article' => $article]) }}">テキストテキストテキスト<br>テキストテキストテキストテキスト</a>
+                <p>テキストテキストテキスト<br>テキストテキストテキストテキスト</p>
                 <div class="tag_area">
                     <a href="">#朝活</a>
                     <a href="">#目標</a>
@@ -50,10 +45,9 @@
             </div>
             <hr>
             <div class="comment_area">
-                <a href="{{ route('articles.show', ['article' => $article]) }}">すべてのコメントを見る</a>
+                コメント一覧
             </div>
         </div>
-        @endforeach
     </div>
 </section>
 
