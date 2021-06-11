@@ -42,3 +42,29 @@ export default {
   },
 };
 </script>
+
+<style lang="css">
+  .vue-tags-input .ti-input {
+    padding: 8px 10px;
+    border: 1px solid #646E72;
+    border-radius: 5px;
+  }
+  .vue-tags-input .ti-input .ti-tag {
+    font-size: 1.5rem;
+    color: #15847B;
+    background-color: transparent;
+    padding: 3px 8px;
+    box-sizing: border-box;
+    border: 1px solid #15847B;
+    border-radius: 5px;
+  }
+  .vue-tags-input .ti-input .ti-tag.ti-deletion-mark {
+    color: #fff;
+    background-color: #E0351E;
+    border: none;
+  }
+  .vue-tags-input .ti-input .ti-new-tag-input {
+    font-size: 1.6rem;
+    color: #333;
+  }
+</style>

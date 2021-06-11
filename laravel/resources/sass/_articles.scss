@@ -146,17 +146,14 @@
             }
             dd {
                 margin-bottom: 20px;
-                input,
                 textarea {
                     color: $fontColor;
                     width: 100%;
+                    min-height: 200px;
                     padding: 10px;
                     box-sizing: border-box;
                     border: 1px solid $darkGray;
                     border-radius: 5px;
-                }
-                textarea {
-                    min-height: 200px;
                 }
             }
         }

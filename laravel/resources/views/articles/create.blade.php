@@ -28,7 +28,8 @@
                     <label for="tags">タグ(最大3個)</label>
                 </dt>
                 <dd>
-                    <input type="text" name="tags" id="tags" value="{{ old('tags') }}">
+                    {{-- <input type="text" name="tags" id="tags" value="{{ old('tags') }}"> --}}
+                    <article-tags-input></article-tags-input>
                 </dd>
             </dl>
             <button type="submit" class="btn green">投稿する</button>
