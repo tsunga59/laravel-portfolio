@@ -58,6 +58,7 @@ export default {
     border-radius: 5px;
   }
   .vue-tags-input .ti-input .ti-tag {
+    align-items: center;
     font-size: 1.5rem;
     color: #15847B;
     background-color: transparent;
@@ -65,6 +66,10 @@ export default {
     box-sizing: border-box;
     border: 1px solid #15847B;
     border-radius: 5px;
+  }
+  .vue-tags-input .ti-tag:before {
+    content: "#";
+    font-size: 1.5rem;
   }
   .vue-tags-input .ti-input .ti-tag.ti-deletion-mark {
     color: #fff;

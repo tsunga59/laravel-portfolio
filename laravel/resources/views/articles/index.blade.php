@@ -38,7 +38,7 @@
                     @if($loop->first)
                     <div class="tag_area">
                     @endif
-                    <a href="">{{ $tag->name }}</a>
+                    <a href="">{{ $tag->hash_tag }}</a>
                     @if($loop->last)
                     </div>
                     @endif

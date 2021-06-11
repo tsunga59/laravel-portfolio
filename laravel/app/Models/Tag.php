@@ -13,9 +13,15 @@ class Tag extends Model
         'name',
     ];
 
+    public function getHashTagAttribute()
+    {
+        return '#'.$this->name;
+    }
+    
     public function articles()
     {
         return $this->belongsToMany('App\Models\Article')->withTimestamps();
     }
+
 
 }
