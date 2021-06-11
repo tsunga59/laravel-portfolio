@@ -28,7 +28,10 @@
                     <label for="tags">タグ(最大5個)</label>
                 </dt>
                 <dd>
-                    <article-tags-input></article-tags-input>
+                    <article-tags-input
+                     :initial-tags='@json($tagNames ?? [])'
+                    >
+                    </article-tags-input>
                 </dd>
             </dl>
             <button type="submit" class="btn green">投稿する</button>
