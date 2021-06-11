@@ -28,7 +28,11 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $allTagNames = Tag::all()->map(function($tag) {
+            return ['text' => $tag->name];
+        });
+        
+        return view('articles.create', ['allTagNames' => $allTagNames]);
     }
 
     /**
@@ -71,12 +75,17 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $allTagNames = Tag::all()->map(function($tag) {
+            return ['text' => $tag->name];
+        });
+        
         $tagNames = $article->tags->map(function($tag) {
             return ['text' => $tag->name];
         });
         
         return view('articles.edit', [
             'article' => $article,
+            'allTagNames' => $allTagNames,
             'tagNames' => $tagNames,
         ]);
     }
