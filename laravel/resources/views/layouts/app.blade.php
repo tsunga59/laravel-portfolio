@@ -26,5 +26,14 @@
         <x-header></x-header>
         @yield('content')
     </div>
+
+    <script>
+        function confirmLogout() {
+            window.confirm('本当にログアウトしてよろしいですか？');
+        }
+        function confirmDelete() {
+            window.confirm('本当に削除してよろしいですか？');
+        }
+    </script>
 </body>
 </html>

@@ -25,7 +25,7 @@
                         {{ Auth::user()->name }}<br>
                         <span>{{ Auth::user()->email }}</span>
                     </a>
-                    <button form="logout-button" type="submit">ログアウト</button>
+                    <button form="logout-button" type="submit" onclick="confirmLogout()">ログアウト</button>
                 </div>
             </li>
             <form id="logout-button" method="POST" action="{{ route('logout') }}" style="display: none;">

@@ -17,13 +17,12 @@
                     <span>2021/06/10</span>
                 </div>
                 {{-- @if(Auth::id() === $article->user_id) --}}
-                    <div id="js-dropdown" class="dropdown">
-                        <span></span>
-                        <div id="js-dropdown-content" class="dropdown-content">
-                            <a href="">編集</a>
-                            <a href="">削除</a>
-                        </div>
-                    </div>
+                <div class="profile_menu">
+                    <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn pc"><i class="fas fa-edit"></i>編集</a>
+                    <a href="{{ route('articles.destroy', ['article' => $article]) }}" class="delete-btn pc" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i>削除</a>
+                    <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn sp" ><i class="fas fa-edit fa-lg"></i></a>
+                    <a href="{{ route('articles.destroy', ['article' => $article]) }}" class="delete-btn sp" onclick="confirmDelete()"><i class="fas fa-trash-alt fa-lg"></i></a>
+                </div>
                 {{-- @endif --}}
             </div>
             <div class="content_area">

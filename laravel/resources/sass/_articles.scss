@@ -9,7 +9,6 @@
         margin-bottom: 15px;
         box-shadow: 0 0 5px rgba($color: $fontColor, $alpha: .5);
         border-radius: 5px;
-        // position: relative;
         .profile_area {
             display: flex;
             align-items: center;
@@ -42,6 +41,7 @@
                 top: 50%;
                 right: 0;
                 transform: translateY(-50%);
+                z-index: 1;
                 .edit-btn {
                     color: $darkBlue;
                     padding: 5px;
