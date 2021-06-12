@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,6 @@ Route::group(['middleware' => ['auth']], function() {
         Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
     });
 });
+
+// タグ別投稿一覧表示
+Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');

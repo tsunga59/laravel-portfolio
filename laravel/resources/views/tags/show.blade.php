@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
-@section('title', '投稿一覧')
+@section('title', $tag->hash_tag)
 
 @section('content')
 
-<section class="articles index">
+<section class="articles tags-show">
     <div class="container">
-        @foreach($articles as $article)
+        <div class="title-tag">
+            <h2>{{ $tag->hash_tag }}</h2>
+            <p>{{ $tag->articles->count() }}件の投稿</p>
+        </div>
+        @foreach($tag->articles as $article)
         <div class="card">
             <div class="profile_area">
                 <a href="" class="profile_image">
