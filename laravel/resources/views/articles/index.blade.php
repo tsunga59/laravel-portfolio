@@ -49,10 +49,11 @@
                     <i class="far fa-comment fa-lg"></i>
                     <span>5</span>
                 </a>
-                <a href="" class="like">
+                {{-- <a href="" class="like">
                     <i class="far fa-heart fa-lg"></i>
                     <span>3</span>
-                </a>
+                </a> --}}
+                <article-like></article-like>
             </div>
             <hr>
             <div class="comment_area">
