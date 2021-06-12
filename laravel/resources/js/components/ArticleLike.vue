@@ -12,7 +12,7 @@
        class="far fa-heart fa-lg"
       />
     </button>
-    <span>10</span>
+    <span>{{ countLikes }}</span>
   </div>
 </template>
 
@@ -23,10 +23,15 @@
         type: Boolean,
         default: false,
       },
+      initialCountLikes: {
+        type: Number,
+        default: 0,
+      },
     },
     data() {
       return {
         hasLike: this.initialHasLike,
+        countLikes: this.initialHasLike,
       }
     },
   }

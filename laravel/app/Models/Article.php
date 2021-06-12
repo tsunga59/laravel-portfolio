@@ -28,11 +28,18 @@ class Article extends Model
         return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
     }
 
+    // ログインユーザーのいいね有無を判定
     public function hasLike(?User $user)
     {
         if($user) {
             return $this->likes->where('id', $user->id)->count();
         }
         return false;
+    }
+
+    // 投稿のいいね数を取得
+    public function getCountLikesAttribute()
+    {
+        return $this->likes->count();
     }
 }
