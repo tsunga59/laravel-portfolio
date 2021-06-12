@@ -82,9 +82,14 @@
                     color: $btnColor;
                     padding: 3px 8px;
                     box-sizing: border-box;
-                    margin-right: 5px;
+                    margin-right: 3px;
                     border: 1px solid $btnColor;
                     border-radius: 5px;
+                    &:hover {
+                        color: $baseColor;
+                        background-color: $btnColor;
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -146,17 +151,14 @@
             }
             dd {
                 margin-bottom: 20px;
-                input,
                 textarea {
                     color: $fontColor;
                     width: 100%;
+                    min-height: 230px;
                     padding: 10px;
                     box-sizing: border-box;
                     border: 1px solid $darkGray;
                     border-radius: 5px;
-                }
-                textarea {
-                    min-height: 200px;
                 }
             }
         }
@@ -212,12 +214,12 @@
 
 /* index */
 /* ============================================ */
-.index {
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-}
+// .index {
+//     .container {
+//         display: flex;
+//         justify-content: center;
+//     }
+// }
 
 // レスポンシブ
 @media screen and (max-width: 767px) {
@@ -255,4 +257,40 @@
         justify-content: center;
         align-items: center;
     }
+}
+
+
+/* tags-show */
+/* ============================================ */
+.tags-show {
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .title-tag {
+        text-align: center;
+        color: $baseColor;
+        background-color: $btnColor;
+        width: 500px;
+        padding: 15px 0;
+        margin-bottom: 30px;
+        box-shadow: 0 0 5px $btnColor;
+        border-radius: 5px;
+        h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+    }
+}
+
+// レスポンシブ
+@media screen and (max-width: 767px) {
+
+.tags-show {
+    .title-tag {
+        width: 100%;
+    }
+}
+
 }
