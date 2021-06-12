@@ -5,6 +5,7 @@
     >
       <i 
        class="far fa-heart fa-lg"
+       :class="{liked: this.hasLike}"
       />
     </button>
     <span>10</span>
@@ -12,6 +13,19 @@
 </template>
 
 <script>
+  export default {
+    props: {
+      initialHasLike: {
+        type: Boolean,
+        default: false,
+      },
+    },
+    data() {
+      return {
+        hasLike: this.initialHasLike,
+      }
+    },
+  }
 </script>
 
 <style lang="css">

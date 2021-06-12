@@ -53,7 +53,10 @@
                     <i class="far fa-heart fa-lg"></i>
                     <span>3</span>
                 </a> --}}
-                <article-like></article-like>
+                <article-like
+                 :initial-has-like='@json($article->hasLike(Auth::user()))'
+                >
+                </article-like>
             </div>
             <hr>
             <div class="comment_area">

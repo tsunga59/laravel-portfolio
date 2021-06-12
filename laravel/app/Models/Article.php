@@ -22,4 +22,17 @@ class Article extends Model
     {
         return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
+    }
+
+    public function hasLike(?User $user)
+    {
+        if($user) {
+            return $this->likes->where('id', $user->id)->count();
+        }
+        return false;
+    }
 }

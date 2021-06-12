@@ -102,6 +102,9 @@
                 align-items: center;
                 i {
                     color: $darkGray;
+                    &.liked {
+                        color: $accentColor;
+                    }
                 }
                 span {
                     color: $darkGray;
