@@ -126,6 +126,7 @@ class ArticleController extends Controller
      * 投稿のいいね追加処理
      * 
      * @param Request $request, Article $article
+     * @return Array
      */
     public function like(Request $request, Article $article)
     {
@@ -142,6 +143,7 @@ class ArticleController extends Controller
      * 投稿のいいね削除処理
      * 
      * @param Request $request, Article $article
+     * @return Array
      */
     public function unlike(Request $request, Article $article)
     {
