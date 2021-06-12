@@ -3,9 +3,13 @@
     <button
       type="button"
     >
-      <i 
+      <i
+       v-if="this.hasLike"
+       class="fas fa-heart fa-lg liked"
+      />
+      <i
+       v-else
        class="far fa-heart fa-lg"
-       :class="{liked: this.hasLike}"
       />
     </button>
     <span>10</span>
