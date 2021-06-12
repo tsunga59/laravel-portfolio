@@ -5,7 +5,7 @@
     >
       <i
        v-if="this.hasLike"
-       class="fas fa-heart fa-lg liked"
+       class="fas fa-heart fa-lg liked animation"
        @click="unlike()"
       />
       <i
@@ -44,18 +44,6 @@
       }
     },
     methods: {
-    //   clickLike() {
-    //     if(!this.authorized) {
-    //       alert('いいねをするにはログインする必要があります。')
-    //       return
-    //     }
-
-    //     if(this.hasLike) {
-    //         this.unlike()
-    //     } else {
-    //         this.like()
-    //     }
-    //   },
       async like() {
         if(!this.authorized) {
           alert('いいねをするにはログインが必要です。')

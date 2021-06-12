@@ -104,14 +104,19 @@
                     color: $darkGray;
                     &.liked {
                         color: $accentColor;
-                        animation: animate .3s ease-in-out forwards;
+                    }
+                    &.animation {
+                        animation: animate .5s ease-in-out forwards;
                     }
                     @keyframes animate {
-                        0%,100% {
+                        0%,50%,100% {
                             transform: scale(1);
                         }
                         25% {
-                            transform: scale(1.5);
+                            transform: scale(1.3);
+                        }
+                        75% {
+                            transform: scale(1.3);
                         }
                     }
                 }
