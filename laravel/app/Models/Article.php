@@ -32,7 +32,7 @@ class Article extends Model
     public function hasLike(?User $user)
     {
         if($user) {
-            return $this->likes->where('id', $user->id)->count();
+            return (bool)$this->likes->where('id', $user->id)->count();
         }
         return false;
     }

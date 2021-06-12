@@ -45,6 +45,9 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
         Route::patch('/{article}', [ArticleController::class, 'update'])->name('update');
         Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
+        // いいね関連処理
+        Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like');
+        Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike');
     });
 });
 
