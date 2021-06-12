@@ -49,10 +49,13 @@
                     <i class="far fa-comment fa-lg"></i>
                     <span>5</span>
                 </a>
-                <a href="" class="like">
-                    <i class="far fa-heart fa-lg"></i>
-                    <span>3</span>
-                </a>
+                <article-like
+                 :initial-has-like='@json($article->hasLike(Auth::user()))'
+                 :initial-count-likes='@json($article->count_likes)'
+                 :authorized='@json(Auth::check())'
+                 endpoint="{{ route('articles.like', ['article' => $article]) }}"
+                >
+                </article-like>
             </div>
             <hr>
             <div class="comment_area">

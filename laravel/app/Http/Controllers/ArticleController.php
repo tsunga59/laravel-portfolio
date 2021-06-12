@@ -121,4 +121,35 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index');
     }
+
+    /**
+     * 投稿のいいね追加処理
+     * 
+     * @param Request $request, Article $article
+     */
+    public function like(Request $request, Article $article)
+    {
+        $article->likes()->detach($request->user()->id);
+        $article->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countLikes' => $article->count_likes,
+        ];
+    }
+
+    /**
+     * 投稿のいいね削除処理
+     * 
+     * @param Request $request, Article $article
+     */
+    public function unlike(Request $request, Article $article)
+    {
+        $article->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countLikes' => $article->count_likes,
+        ];
+    }
 }
