@@ -47,4 +47,9 @@ class Article extends Model
     {
         return $this->belongsToMany('App\Models\User', 'comments')->withTimestamps();
     }
+
+    public function getCountCommentsAttribute()
+    {
+        return $this->comments->count();
+    }
 }
