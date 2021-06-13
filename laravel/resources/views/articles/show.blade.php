@@ -13,8 +13,10 @@
                     <i class="far fa-user fa-2x"></i>
                 </a>
                 <div class="profile_text">
-                    <a href="">ユーザー名</a>
-                    <span>2021/06/10</span>
+                    <div class="profile_text">
+                        <a href="">{{ $article->user->name }}</a>
+                        <span>{{ $article->created_at->format('Y/m/d H:i') }}</span>
+                    </div>
                 </div>
                 {{-- @if(Auth::id() === $article->user_id) --}}
                 <div class="profile_menu">
@@ -26,22 +28,29 @@
                 {{-- @endif --}}
             </div>
             <div class="content_area">
-                {{-- {!! nl2br(e($article->content)) !!} --}}
-                <p>テキストテキストテキスト<br>テキストテキストテキストテキスト</p>
-                <div class="tag_area">
-                    <a href="">#朝活</a>
-                    <a href="">#目標</a>
-                </div>
+                {!! nl2br(e($article->content)) !!}
+                @foreach($article->tags as $tag)
+                    @if($loop->first)
+                    <div class="tag_area">
+                    @endif
+                    <a href="{{ route('tags.show', ['name' => $tag->name]) }}">{{ $tag->hash_tag }}</a>
+                    @if($loop->last)
+                    </div>
+                    @endif
+                @endforeach
             </div>
             <div class="reaction_area">
                 <a href="" class="comment">
                     <i class="far fa-comment fa-lg"></i>
                     <span>5</span>
                 </a>
-                <a href="" class="like">
-                    <i class="far fa-heart fa-lg"></i>
-                    <span>3</span>
-                </a>
+                <article-like
+                 :initial-has-like='@json($article->hasLike(Auth::user()))'
+                 :initial-count-likes='@json($article->count_likes)'
+                 :authorized='@json(Auth::check())'
+                 endpoint="{{ route('articles.like', ['article' => $article]) }}"
+                >
+                </article-like>
             </div>
             <hr>
             <div class="comment_area">

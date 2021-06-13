@@ -49,6 +49,12 @@ Route::group(['middleware' => ['auth']], function() {
         Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like');
         Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike');
     });
+
+    // コメント関連処理
+    Route::prefix('comments')->name('comments.')->group(function() {
+        Route::post('/', [CommentController::class, 'store'])->name('store');
+        Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
+    });
 });
 
 // タグ別投稿一覧表示
