@@ -40,10 +40,12 @@
                 @endforeach
             </div>
             <div class="reaction_area">
-                <a href="" class="comment">
-                    <i class="far fa-comment fa-lg"></i>
-                    <span>5</span>
-                </a>
+                <div class="comment">
+                    <button type="button">
+                        <i class="far fa-comment fa-lg"></i>
+                    </button>
+                    <span>{{ $article->count_comments }}</span>
+                </div>
                 <article-like
                  :initial-has-like='@json($article->hasLike(Auth::user()))'
                  :initial-count-likes='@json($article->count_likes)'
@@ -54,7 +56,16 @@
             </div>
             <hr>
             <div class="comment_area">
-                コメント一覧
+                @forelse($article->comments as $comment)
+                <p>{{ $comment->comment }} {{ $comment->created_at->format('Y/m/d H:i') }}</p>
+                @empty
+                <p>コメントがありません。</p>
+                @endforelse
+                <form action="{{ route('comments.store', ['article' => $article]) }}" method="post" class="comment_form">
+                    @csrf
+                    <textarea name="comment" placeholder="コメントを入力する"></textarea>
+                    <button type="submit" class="btn green">送信する</button>
+                </form>
             </div>
         </div>
     </div>

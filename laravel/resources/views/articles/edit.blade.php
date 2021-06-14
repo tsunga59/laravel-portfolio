@@ -6,7 +6,7 @@
 
 <section class="articles create">
     <div class="container">
-        <form action="{{ route('articles.update', ['article' => $article]) }}" method="post">
+        <form action="{{ route('articles.update', ['article' => $article]) }}" method="post" class="article_form">
             @csrf
             @method('patch')
             <!-- エラーメッセージ -->

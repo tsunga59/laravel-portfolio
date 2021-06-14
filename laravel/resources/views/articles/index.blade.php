@@ -46,9 +46,9 @@
             </div>
             <div class="reaction_area">
                 <div class="comment">
-                    <button type="button">
+                    <a href="{{ route('articles.show', ['article' => $article]) }}">
                         <i class="far fa-comment fa-lg"></i>
-                    </button>
+                    </a>
                     <span>{{ $article->count_comments }}</span>
                 </div>
                 <article-like
@@ -60,9 +60,18 @@
                 </article-like>
             </div>
             <hr>
-            <div class="comment_area">
+            @foreach($article->comments as $comment)
+                @if($loop->first)
+                <div class="comment_area">
+                @endif
+                @if($loop->index < 2)
+                <p>{{ $comment->comment }} {{ $comment->created_at->format('Y/m/d H:i') }}</p>
+                @endif
+                @if($loop->last)
                 <a href="{{ route('articles.show', ['article' => $article]) }}">すべてのコメントを見る</a>
-            </div>
+                </div>
+                @endif
+            @endforeach
         </div>
         @endforeach
     </div>

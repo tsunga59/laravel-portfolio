@@ -140,7 +140,7 @@
             }
         }
     }
-    form {
+    .article_form {
         width: 500px;
         background-color: $baseColor;
         padding: 100px 60px 80px;
@@ -263,6 +263,30 @@
     .container {
         display: flex;
         justify-content: center;
+    }
+    .comment_form {
+        width: 100%;
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid $darkGray;
+            border-radius: 5px;
+        }
+        .btn {
+            display: block;
+            font-weight: bold;
+            text-align: center;
+            color: $baseColor;
+            padding: 10px 40px;
+            box-sizing: border-box;
+            margin: 20px 0 0 auto;
+            border-radius: 30px;
+            &.green {
+                background-color: $btnColor;
+            }
+        }
     }
 }
 

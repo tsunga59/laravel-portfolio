@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -52,8 +53,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     // コメント関連処理
     Route::prefix('comments')->name('comments.')->group(function() {
-        Route::post('/', [CommentController::class, 'store'])->name('store');
-        Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
+        Route::post('/{article}', [CommentController::class, 'store'])->name('store');
+        // Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
     });
 });
 

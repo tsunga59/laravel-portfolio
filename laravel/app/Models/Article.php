@@ -45,9 +45,10 @@ class Article extends Model
 
     public function comments()
     {
-        return $this->belongsToMany('App\Models\User', 'comments')->withTimestamps();
+        return $this->hasMany('App\Models\Comment');
     }
 
+    // 投稿のコメント数を取得
     public function getCountCommentsAttribute()
     {
         return $this->comments->count();

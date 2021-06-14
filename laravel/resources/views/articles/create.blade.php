@@ -6,7 +6,7 @@
 
 <section class="articles create">
     <div class="container">
-        <form action="{{ route('articles.store') }}" method="post">
+        <form action="{{ route('articles.store') }}" method="post" class="article_form">
             @csrf
             <!-- エラーメッセージ -->
             @if($errors->any())
