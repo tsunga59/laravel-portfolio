@@ -45,10 +45,12 @@
                 @endforeach
             </div>
             <div class="reaction_area">
-                <a href="" class="comment">
-                    <i class="far fa-comment fa-lg"></i>
-                    <span>5</span>
-                </a>
+                <div class="comment">
+                    <a href="{{ route('articles.show', ['article' => $article]) }}">
+                        <i class="far fa-comment fa-lg"></i>
+                    </a>
+                    <span>{{ $article->count_comments }}</span>
+                </div>
                 <article-like
                  :initial-has-like='@json($article->hasLike(Auth::user()))'
                  :initial-count-likes='@json($article->count_likes)'
@@ -58,9 +60,42 @@
                 </article-like>
             </div>
             <hr>
-            <div class="comment_area">
-                <a href="{{ route('articles.show', ['article' => $article]) }}">すべてのコメントを見る</a>
-            </div>
+            @forelse($article->comments as $comment)
+                @if($loop->first)
+                <div class="comment_area">
+                @endif
+                @if($loop->index < 2)
+                <div class="profile_area">
+                    <a href="" class="profile_image">
+                        {{-- <img src=""> --}}
+                        <i class="far fa-user fa-lg"></i>
+                    </a>
+                    <div class="profile_text">
+                        <div class="profile_text">
+                            <a href="">{{ $comment->user->name }}</a>
+                            <span>{{ $comment->created_at->format('Y/m/d H:i') }}</span>
+                        </div>
+                    </div>
+                    @if(Auth::id() === $comment->user_id)
+                    <div class="profile_menu">
+                        <button form="comment-delete-button" class="comment-delete-btn" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    <form id="comment-delete-button" method="post" action="{{ route('comments.destroy', ['comment' => $comment]) }}" style="display: none;">
+                        @csrf
+                        @method('delete')
+                    </form>
+                    @endif
+                </div>
+                <p>{!! nl2br(e($comment->comment)) !!}</p>
+                <hr>
+                @endif
+                @if($loop->last)
+                <a href="{{ route('articles.show', ['article' => $article]) }}" class="add">すべてのコメントを見る</a>
+                </div>
+                @endif
+            @empty
+            <p class="no_comments">コメントがありません。</p>
+            @endforelse
         </div>
         @endforeach
     </div>

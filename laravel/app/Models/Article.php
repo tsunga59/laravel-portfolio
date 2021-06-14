@@ -42,4 +42,15 @@ class Article extends Model
     {
         return $this->likes->count();
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    // 投稿のコメント数を取得
+    public function getCountCommentsAttribute()
+    {
+        return $this->comments->count();
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -48,6 +49,12 @@ Route::group(['middleware' => ['auth']], function() {
         // いいね関連処理
         Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like');
         Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike');
+    });
+
+    // コメント関連処理
+    Route::prefix('comments')->name('comments.')->group(function() {
+        Route::post('/{article}', [CommentController::class, 'store'])->name('store');
+        Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
     });
 });
 
