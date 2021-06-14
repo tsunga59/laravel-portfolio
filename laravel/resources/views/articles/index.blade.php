@@ -80,10 +80,10 @@
                     <div class="profile_menu">
                         <button form="comment-delete-button" class="comment-delete-btn" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i></button>
                     </div>
-                    {{-- <form id="comment-delete-button" method="post" action="{{ route('comments.destroy', ['article' => $article]) }}" style="display: none;">
+                    <form id="comment-delete-button" method="post" action="{{ route('comments.destroy', ['comment' => $comment]) }}" style="display: none;">
                         @csrf
                         @method('delete')
-                    </form> --}}
+                    </form>
                     @endif
                 </div>
                 <p>{!! nl2br(e($comment->comment)) !!}</p>

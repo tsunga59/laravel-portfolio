@@ -12,10 +12,10 @@ class CommentController extends Controller
     /**
      * コメントの新規作成処理
      * 
-     * @param CommentRequest $request, Comment $comment, Article $article
+     * @param CommentRequest $request, Article $article, Comment $comment
      * @return RedirectResponse
      */
-    public function store(CommentRequest $request, Comment $comment, Article $article)
+    public function store(CommentRequest $request, Article $article, Comment $comment)
     {
         $comment->user_id = $request->user()->id;
         $comment->article_id = $article->id;
@@ -33,11 +33,8 @@ class CommentController extends Controller
      */
     public function destroy(Request $request, Comment $comment)
     {
-        // $article->comments()->detach($request->user()->id);
+        $comment->delete();
 
-        // return [
-        //     'id' => $article->id,
-        //     'countComments' => $article->count_comments,
-        // ];
+        return redirect()->back();
     }
 }

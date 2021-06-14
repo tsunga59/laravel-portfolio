@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     // コメント関連処理
     Route::prefix('comments')->name('comments.')->group(function() {
         Route::post('/{article}', [CommentController::class, 'store'])->name('store');
-        // Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
+        Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
     });
 });
 
