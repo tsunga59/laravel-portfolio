@@ -9,12 +9,12 @@
         @foreach($articles as $article)
         <div class="card">
             <div class="profile_area">
-                <a href="" class="profile_image">
+                <a href="{{ route('users.show', ['user' => $article->user]) }}" class="profile_image">
                     {{-- <img src=""> --}}
                     <i class="far fa-user fa-2x"></i>
                 </a>
                 <div class="profile_text">
-                    <a href="">{{ $article->user->name }}</a>
+                    <a href="{{ route('users.show', ['user' => $article->user]) }}">{{ $article->user->name }}</a>
                     <span>{{ $article->created_at->format('Y/m/d H:i') }}</span>
                 </div>
                 @if(Auth::id() === $article->user_id)
@@ -66,13 +66,13 @@
                 @endif
                 @if($loop->index < 2)
                 <div class="profile_area">
-                    <a href="" class="profile_image">
+                    <a href="{{ route('users.show', ['user' => $comment->user]) }}" class="profile_image">
                         {{-- <img src=""> --}}
                         <i class="far fa-user fa-lg"></i>
                     </a>
                     <div class="profile_text">
                         <div class="profile_text">
-                            <a href="">{{ $comment->user->name }}</a>
+                            <a href="{{ route('users.show', ['user' => $comment->user]) }}">{{ $comment->user->name }}</a>
                             <span>{{ $comment->created_at->format('Y/m/d H:i') }}</span>
                         </div>
                     </div>
