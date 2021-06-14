@@ -55,18 +55,42 @@
                 </article-like>
             </div>
             <hr>
-            <div class="comment_area">
-                @forelse($article->comments as $comment)
-                <p>{{ $comment->comment }} {{ $comment->created_at->format('Y/m/d H:i') }}</p>
-                @empty
-                <p>コメントがありません。</p>
-                @endforelse
-                <form action="{{ route('comments.store', ['article' => $article]) }}" method="post" class="comment_form">
-                    @csrf
-                    <textarea name="comment" placeholder="コメントを入力する"></textarea>
-                    <button type="submit" class="btn green">送信する</button>
-                </form>
-            </div>
+            @foreach($article->comments as $comment)
+                @if($loop->first)
+                <div class="comment_area">
+                @endif
+                <div class="profile_area">
+                    <a href="" class="profile_image">
+                        {{-- <img src=""> --}}
+                        <i class="far fa-user fa-lg"></i>
+                    </a>
+                    <div class="profile_text">
+                        <div class="profile_text">
+                            <a href="">{{ $comment->user->name }}</a>
+                            <span>{{ $comment->created_at->format('Y/m/d H:i') }}</span>
+                        </div>
+                    </div>
+                    @if(Auth::id() === $comment->user_id)
+                    <div class="profile_menu">
+                        <button form="comment-delete-button" class="comment-delete-btn" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    {{-- <form id="comment-delete-button" method="post" action="{{ route('comments.destroy', ['article' => $article]) }}" style="display: none;">
+                        @csrf
+                        @method('delete')
+                    </form> --}}
+                    @endif
+                </div>
+                <p>{!! nl2br(e($comment->comment)) !!}</p>
+                <hr>
+                @if($loop->last)
+                </div>
+                @endif
+            @endforeach
+            <form action="{{ route('comments.store', ['article' => $article]) }}" method="post" class="comment_form">
+                @csrf
+                <textarea name="comment" placeholder="コメントを入力する"></textarea>
+                <button type="submit" class="btn green">送信する</button>
+            </form>
         </div>
     </div>
 </section>

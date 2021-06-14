@@ -65,10 +65,32 @@
                 <div class="comment_area">
                 @endif
                 @if($loop->index < 2)
-                <p>{{ $comment->comment }} {{ $comment->created_at->format('Y/m/d H:i') }}</p>
+                <div class="profile_area">
+                    <a href="" class="profile_image">
+                        {{-- <img src=""> --}}
+                        <i class="far fa-user fa-lg"></i>
+                    </a>
+                    <div class="profile_text">
+                        <div class="profile_text">
+                            <a href="">{{ $comment->user->name }}</a>
+                            <span>{{ $comment->created_at->format('Y/m/d H:i') }}</span>
+                        </div>
+                    </div>
+                    @if(Auth::id() === $comment->user_id)
+                    <div class="profile_menu">
+                        <button form="comment-delete-button" class="comment-delete-btn" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    {{-- <form id="comment-delete-button" method="post" action="{{ route('comments.destroy', ['article' => $article]) }}" style="display: none;">
+                        @csrf
+                        @method('delete')
+                    </form> --}}
+                    @endif
+                </div>
+                <p>{!! nl2br(e($comment->comment)) !!}</p>
+                <hr>
                 @endif
                 @if($loop->last)
-                <a href="{{ route('articles.show', ['article' => $article]) }}">すべてのコメントを見る</a>
+                <a href="{{ route('articles.show', ['article' => $article]) }}" class="add">すべてのコメントを見る</a>
                 </div>
                 @endif
             @endforeach
