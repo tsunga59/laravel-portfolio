@@ -60,7 +60,7 @@
                 </article-like>
             </div>
             <hr>
-            @foreach($article->comments as $comment)
+            @forelse($article->comments as $comment)
                 @if($loop->first)
                 <div class="comment_area">
                 @endif
@@ -93,7 +93,9 @@
                 <a href="{{ route('articles.show', ['article' => $article]) }}" class="add">すべてのコメントを見る</a>
                 </div>
                 @endif
-            @endforeach
+            @empty
+            <p class="no_comments">コメントがありません。</p>
+            @endforelse
         </div>
         @endforeach
     </div>
