@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,11 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', ['user' => $user]);
+        $articles = $user->articles->sortByDesc('created_at');
+
+        return view('users.show', [
+            'user' => $user,
+            'articles' => $articles,
+        ]);
     }
 }

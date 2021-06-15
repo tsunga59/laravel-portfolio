@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', '新規投稿')
+@section('title', 'プロフィール編集')
 
 @section('content')
 
-<section class="articles edit">
+<section class="users edit">
     <div class="container">
-        <form action="{{ route('articles.update', ['article' => $article]) }}" method="post" class="article_form">
+        <form action="{{ route('articles.update', ['article' => $article]) }}" method="post" class="user_form">
             @csrf
             @method('patch')
             <!-- エラーメッセージ -->

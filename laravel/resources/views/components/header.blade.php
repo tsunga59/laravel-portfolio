@@ -21,7 +21,7 @@
             <li class="dropdown">
                 <i class="far fa-user fa-lg"></i>
                 <div class="dropdown-content">
-                    <a href="">
+                    <a href="{{ route('users.show', ['user' => Auth::user()]) }}">
                         {{ Auth::user()->name }}<br>
                         <span>{{ Auth::user()->email }}</span>
                     </a>
