@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-     * 投稿の詳細を表示
+     * プロフィールの詳細を表示
      * 
      * @param Article $article
      * @return view
@@ -23,5 +23,27 @@ class UserController extends Controller
             'user' => $user,
             'articles' => $articles,
         ]);
+    }
+
+    /**
+     * プロフィールの更新画面を表示
+     * 
+     * @param User $user
+     * @return view
+     */
+    public function edit(User $user)
+    {
+        return view('users.edit', ['user' => $user]);
+    }
+
+    /**
+     * プロフィールの更新処理
+     * 
+     * @param UserRequest $request, User $user
+     * @return RedirectResponse
+     */
+    public function update(UserRequest $request, User $user)
+    {
+        
     }
 }

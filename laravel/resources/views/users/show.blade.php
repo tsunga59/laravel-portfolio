@@ -29,7 +29,7 @@
                 </div>
                 <div class="profile_menu">
                     @if(Auth::id() === $user->id)
-                    <a href="" class="profile-edit-btn"><i class="fas fa-edit"></i>編集</a>
+                    <a href="{{ route('users.edit', ['user' => $user]) }}" class="profile-edit-btn"><i class="fas fa-edit"></i>編集</a>
                     @else
                     <a href="" class="follow-btn"><i class="fas fa-user"></i>フォロー</a>
                     @endif

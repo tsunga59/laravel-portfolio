@@ -23,7 +23,7 @@
                     <label for="content">投稿本文</label>
                 </dt>
                 <dd>
-                    <textarea name="content" id="content">{{ old('content') ?? $article->content }}</textarea>
+                    <textarea name="content" id="content" rows="8">{{ old('content') ?? $article->content }}</textarea>
                 </dd>
                 <dt>
                     <label for="tags">タグ(最大5個)</label>
