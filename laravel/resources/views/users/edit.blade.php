@@ -19,31 +19,16 @@
             @endif
             <h2>プロフィール編集フォーム</h2>
             <dl>
-                {{-- <span class="avatar-form image-picker">
-                    <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
-                    <label for="avatar" class="d-inline-block">
-                        <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
-                    </label>
-                </span> --}}
                 <dd class="profile_image_area">
                     <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}" style="display: none">
                     <label for="profile_image">
                         @if(isset($user->profile_image))
                         <img src="" accept="image/*" style="width:50px;height:50px;border:1px solid #333;">
                         @else
-                        <i class="fas fa-user fa-3x"></i>
+                        <i class="far fa-user fa-4x"></i>
                         @endif
                     </label>
                 </dd>
-                {{-- <dt>
-                    <label for="profile_image">
-                        <i class="fas fa-user"></i>
-                        <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}">
-                    </label>
-                </dt>
-                <dd>
-                    <img src="" accept="image/*" style="width:50px;height:50px;border:1px solid #333;">
-                </dd> --}}
                 <dt>
                     <label for="name">ユーザー名</label>
                 </dt>
@@ -57,13 +42,21 @@
                     <textarea name="self_introduction" id="self_introduction" rows="6">{{ old('self_introduction') ?? $user->self_introduction }}</textarea>
                 </dd>
                 <dt>
-                    <label for="wake_up_time">朝活目標時間</label>
+                    <label for="wake_up_time">朝活目標時間(04:00〜08:00/15分毎)</label>
                 </dt>
                 <dd>
-                    <input type="text" name="wakeup_time" id="wakeup_time" value="{{ old('wakeup_time') ?? $user->wakeup_time }}">
-                    {{-- <select name="" id="">
-                        <option value="1"></option>
-                    </select> --}}
+                    <input type="time" name="wakeup_time" id="wakeup_time" list="time_list" min="04:00" max="08:00" step="900" value="{{ old('wakeup_time') ?? $user->wakeup_time }}">
+                    <datalist id="time_list">
+                        <option value="04:00"></option>
+                        <option value="04:30"></option>
+                        <option value="05:00"></option>
+                        <option value="05:30"></option>
+                        <option value="06:00"></option>
+                        <option value="06:30"></option>
+                        <option value="07:00"></option>
+                        <option value="07:30"></option>
+                        <option value="08:00"></option>
+                    </datalist>
                 </dd>
             </dl>
             <button type="submit" class="btn green">編集する</button>

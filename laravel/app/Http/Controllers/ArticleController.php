@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -75,19 +76,24 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        $allTagNames = Tag::all()->map(function($tag) {
-            return ['text' => $tag->name];
-        });
-        
-        $tagNames = $article->tags->map(function($tag) {
-            return ['text' => $tag->name];
-        });
-        
-        return view('articles.edit', [
-            'article' => $article,
-            'allTagNames' => $allTagNames,
-            'tagNames' => $tagNames,
-        ]);
+        // 他ユーザーによる操作対策
+        if($article->user_id === Auth::id()) {
+            $allTagNames = Tag::all()->map(function($tag) {
+                return ['text' => $tag->name];
+            });
+            
+            $tagNames = $article->tags->map(function($tag) {
+                return ['text' => $tag->name];
+            });
+            
+            return view('articles.edit', [
+                'article' => $article,
+                'allTagNames' => $allTagNames,
+                'tagNames' => $tagNames,
+            ]);
+        }
+
+        return redirect()->back();
     }
 
     /**

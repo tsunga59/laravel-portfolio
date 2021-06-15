@@ -22,9 +22,7 @@
                             <a href=""><span>3</span>フォロー</a>
                             <a href=""><span>5</span>フォロワー</a>
                         </div>
-                        <div class="message">
-                            自己紹介テキストテキスト<br>自己紹介テキストテキスト自己紹介テキストテキスト
-                        </div>
+                        <div class="message">{!! nl2br(e($user->self_introduction)) !!}</div>
                     </div>
                 </div>
                 <div class="profile_menu">
@@ -39,7 +37,7 @@
                 <li>
                     <i class="far fa-clock fa-2x"></i>
                     <h2>朝活目標時間</h2>
-                    <p>7:00</p>
+                    <p>{{ substr($user->wakeup_time, 0, 5) }}</p>
                 </li>
                 <li>
                     <i class="far fa-calendar-alt fa-2x"></i>
