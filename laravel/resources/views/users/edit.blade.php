@@ -23,7 +23,7 @@
                     <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}" style="display: none">
                     <label for="profile_image">
                         @if(isset($user->profile_image))
-                        <img src="" accept="image/*" style="width:50px;height:50px;border:1px solid #333;">
+                        <img src="{{ old('profile_image') ?? $user->profile_image }}" accept="image/*">
                         @else
                         <i class="far fa-user fa-4x"></i>
                         @endif
@@ -36,7 +36,7 @@
                     <input type="text" name="name" id="name" value="{{ old('name') ?? $user->name }}">
                 </dd>
                 <dt>
-                    <label for="self_introduction">自己紹介・意気込み</label>
+                    <label for="self_introduction">自己紹介・意気込み(最大200文字)</label>
                 </dt>
                 <dd>
                     <textarea name="self_introduction" id="self_introduction" rows="6">{{ old('self_introduction') ?? $user->self_introduction }}</textarea>
@@ -45,7 +45,7 @@
                     <label for="wake_up_time">朝活目標時間(04:00〜08:00/15分毎)</label>
                 </dt>
                 <dd>
-                    <input type="time" name="wakeup_time" id="wakeup_time" list="time_list" min="04:00" max="08:00" step="900" value="{{ old('wakeup_time') ?? $user->wakeup_time }}">
+                    <input type="time" name="wakeup_time" id="wakeup_time" list="time_list" min="04:00" max="08:00" step="900" value="{{ old('wakeup_time') ?? substr($user->wakeup_time,0,5) }}">
                     <datalist id="time_list">
                         <option value="04:00"></option>
                         <option value="04:30"></option>

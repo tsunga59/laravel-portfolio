@@ -26,8 +26,8 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255|unique:users,name,'.Auth::user()->name.',name',
-            'profile_image' => 'file',
-            'self_introduction' => 'required|string|max:300',
+            'profile_image' => 'file|image|max:2048',
+            'self_introduction' => 'required|string|max:200',
             'wakeup_time' => 'required|date_format:H:i',
         ];
     }
@@ -44,6 +44,7 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.unique' => '指定された:attributeは既に使われています。',
             'wakeup_time.date_format' => ':attributeを正しい形式で指定してください。',
         ];
     }

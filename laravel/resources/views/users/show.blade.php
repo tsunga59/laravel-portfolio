@@ -10,19 +10,19 @@
             <div class="profile_top">
                 <div class="profile_left">
                     <div class="profile_image">
-                        {{-- <img src=""> --}}
-                        <i class="far fa-user fa-3x"></i>
+                        <img src="/storage/profile_images/{{ $user->profile_image }}">
+                        {{-- <i class="far fa-user fa-3x"></i> --}}
                     </div>
                 </div>
                 <div class="profile_right">
                     <div class="profile_text">
                         <p class="name">{{ $user->name }}</p>
                         <div class="info">
-                            <p><span>10</span>投稿</p>
+                            <p><span>{{ $user->count_articles }}</span>投稿</p>
                             <a href=""><span>3</span>フォロー</a>
                             <a href=""><span>5</span>フォロワー</a>
                         </div>
-                        <div class="message">{!! nl2br(e($user->self_introduction)) !!}</div>
+                        <p class="message">{!! nl2br(e($user->self_introduction)) !!}</p>
                     </div>
                 </div>
                 <div class="profile_menu">

@@ -22,13 +22,21 @@
                 width: 70%;
             }
             .profile_image {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: $lightGray;
-                width: 130px;
-                height: 130px;
-                border-radius: 130px;
+                img,
+                i {
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 130px;
+                }
+                img {
+                    object-fit: cover;
+                }
+                i {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $lightGray;
+                }
             }
             .profile_text {
                 .name {
@@ -325,9 +333,9 @@
                 justify-content: center;
                 img,
                 i {
-                    width: 150px;
-                    height: 150px;
-                    border-radius: 150px;
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 130px;
                 }
                 img {
                     object-fit: cover;
@@ -384,16 +392,6 @@
     .user_form {
         width: 100%;
         padding: 80px 20px 40px;
-        dl {
-            .profile_image_area {
-                img,
-                i {
-                    width: 120px;
-                    height: 120px;
-                    border-radius: 120px;
-                }
-            }
-        }
     }
 }
         
