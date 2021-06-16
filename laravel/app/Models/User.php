@@ -49,4 +49,15 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Article');
     }
+
+    // ユーザーの投稿数を取得
+    public function getCountArticlesAttribute()
+    {
+        return $this->articles->count();
+    }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\Article', 'likes')->withTimestamps();
+    }
 }

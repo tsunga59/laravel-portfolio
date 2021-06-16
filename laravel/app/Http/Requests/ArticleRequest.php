@@ -46,5 +46,6 @@ class ArticleRequest extends FormRequest
             ->map(function($requestTag) {
                 return $requestTag->text;
             });
+
     }
 }

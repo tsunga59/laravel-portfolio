@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -50,11 +51,17 @@ Route::group(['middleware' => ['auth']], function() {
         Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like');
         Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike');
     });
-
     // コメント関連処理
     Route::prefix('comments')->name('comments.')->group(function() {
         Route::post('/{article}', [CommentController::class, 'store'])->name('store');
         Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('destroy');
+    });
+    // ユーザー関連処理
+    Route::prefix('users')->name('users.')->group(function() {
+        Route::get('/{user}', [UserController::class, 'show'])->name('show');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+        Route::patch('/{user}', [UserController::class, 'update'])->name('update');
+        Route::get('/{user}/likes', [UserController::class, 'likes'])->name('likes');
     });
 });
 

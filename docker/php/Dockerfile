@@ -14,6 +14,15 @@ RUN apt-get update \
   zip \
   unzip \
   libzip-dev \
+  zlib1g-dev libpng-dev \
+  libjpeg62-turbo-dev \
+  libwebp-dev \
+  libxpm-dev \
+  && docker-php-ext-configure gd \
+    --with-jpeg \
+    --with-webp \
+    --with-xpm \
+  && docker-php-ext-install -j$(nproc) gd \
   && docker-php-ext-install zip pdo_mysql
 
 WORKDIR /var/www

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="articles create">
+<section class="articles edit">
     <div class="container">
         <form action="{{ route('articles.update', ['article' => $article]) }}" method="post" class="article_form">
             @csrf
@@ -23,7 +23,7 @@
                     <label for="content">投稿本文</label>
                 </dt>
                 <dd>
-                    <textarea name="content" id="content">{{ old('content') ?? $article->content }}</textarea>
+                    <textarea name="content" id="content" rows="8">{{ old('content') ?? $article->content }}</textarea>
                 </dd>
                 <dt>
                     <label for="tags">タグ(最大5個)</label>
