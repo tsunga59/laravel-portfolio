@@ -16,14 +16,22 @@
             margin-bottom: 15px;
             position: relative;
             .profile_image {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: $lightGray;
-                width: 50px;
-                height: 50px;
                 margin-right: 15px;
-                border-radius: 50px;
+                img,
+                i {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50px;
+                }
+                img {
+                    object-fit: cover;
+                }
+                i {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $lightGray;
+                }
             }
             .profile_text {
                 a {
@@ -141,10 +149,22 @@
             .profile_area {
                 margin-bottom: 10px;
                 .profile_image {
-                    width: 40px;
-                    height: 40px;
                     margin-right: 10px;
-                    border-radius: 40px;
+                    img,
+                    i {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 40px;
+                    }
+                    img {
+                        object-fit: cover;
+                    }
+                    i {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $lightGray;
+                    }
                 }
                 .profile_text {
                     a {

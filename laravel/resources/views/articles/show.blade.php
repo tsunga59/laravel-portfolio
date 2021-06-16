@@ -9,8 +9,11 @@
         <div class="card">
             <div class="profile_area">
                 <a href="{{ route('users.show', ['user' => $article->user]) }}" class="profile_image">
-                    {{-- <img src=""> --}}
+                    @if(!empty($article->user->profile_image))
+                    <img src="/storage/profile_images/{{ $article->user->profile_image }}">
+                    @else
                     <i class="far fa-user fa-2x"></i>
+                    @endif
                 </a>
                 <div class="profile_text">
                     <div class="profile_text">
@@ -18,14 +21,14 @@
                         <span>{{ $article->created_at->format('Y/m/d H:i') }}</span>
                     </div>
                 </div>
-                {{-- @if(Auth::id() === $article->user_id) --}}
+                @if(Auth::id() === $article->user_id)
                 <div class="profile_menu">
                     <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn pc"><i class="fas fa-edit"></i>編集</a>
                     <a href="{{ route('articles.destroy', ['article' => $article]) }}" class="delete-btn pc" onclick="confirmDelete()"><i class="fas fa-trash-alt"></i>削除</a>
                     <a href="{{ route('articles.edit', ['article' => $article]) }}" class="edit-btn sp" ><i class="fas fa-edit fa-lg"></i></a>
                     <a href="{{ route('articles.destroy', ['article' => $article]) }}" class="delete-btn sp" onclick="confirmDelete()"><i class="fas fa-trash-alt fa-lg"></i></a>
                 </div>
-                {{-- @endif --}}
+                @endif
             </div>
             <div class="content_area">
                 {!! nl2br(e($article->content)) !!}
@@ -61,8 +64,11 @@
                 @endif
                 <div class="profile_area">
                     <a href="{{ route('users.show', ['user' => $comment->user]) }}" class="profile_image">
-                        {{-- <img src=""> --}}
+                        @if(!empty($comment->user->profile_image))
+                        <img src="/storage/profile_images/{{ $comment->user->profile_image }}">
+                        @else
                         <i class="far fa-user fa-lg"></i>
+                        @endif
                     </a>
                     <div class="profile_text">
                         <div class="profile_text">

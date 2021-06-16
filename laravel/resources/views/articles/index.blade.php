@@ -10,8 +10,11 @@
         <div class="card">
             <div class="profile_area">
                 <a href="{{ route('users.show', ['user' => $article->user]) }}" class="profile_image">
-                    {{-- <img src=""> --}}
+                    @if(!empty($article->user->profile_image))
+                    <img src="/storage/profile_images/{{ $article->user->profile_image }}">
+                    @else
                     <i class="far fa-user fa-2x"></i>
+                    @endif
                 </a>
                 <div class="profile_text">
                     <a href="{{ route('users.show', ['user' => $article->user]) }}">{{ $article->user->name }}</a>
@@ -67,8 +70,11 @@
                 @if($loop->index < 2)
                 <div class="profile_area">
                     <a href="{{ route('users.show', ['user' => $comment->user]) }}" class="profile_image">
-                        {{-- <img src=""> --}}
+                        @if(!empty($comment->user->profile_image))
+                        <img src="/storage/profile_images/{{ $comment->user->profile_image }}">
+                        @else
                         <i class="far fa-user fa-lg"></i>
+                        @endif
                     </a>
                     <div class="profile_text">
                         <div class="profile_text">
