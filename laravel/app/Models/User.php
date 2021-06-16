@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->articles->count();
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\Article', 'likes')->withTimestamps();
+    }
 }

@@ -94,4 +94,20 @@ class UserController extends Controller
         $meta = stream_get_meta_data($tmp_fp);
         return $meta['uri'];
     }
+
+    /**
+     * いいねした投稿を一覧表示
+     * 
+     * @param User $user
+     * @return view
+     */
+    public function likes(User $user)
+    {
+        $articles = $user->likes->sortByDesc('created_at');
+        
+        return view('users.likes', [
+            'user' => $user,
+            'articles' => $articles,
+        ]);
+    }
 }

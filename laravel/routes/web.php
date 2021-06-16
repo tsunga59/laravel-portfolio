@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
         Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
+        Route::get('/{user}/likes', [UserController::class, 'likes'])->name('likes');
     });
 });
 

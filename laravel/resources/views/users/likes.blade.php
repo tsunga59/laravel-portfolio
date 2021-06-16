@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'プロフィール')
+@section('title', 'いいねした投稿一覧')
 
 @section('content')
 
@@ -56,10 +56,10 @@
             <div class="article_area">
                 <ul class="nav_list">
                     <li>
-                        <a href="{{ route('users.show', ['user' => $user]) }}" class="active">投稿</a>
+                        <a href="{{ route('users.show', ['user' => $user]) }}">投稿</a>
                     </li>
                     <li>
-                        <a href="{{ route('users.likes', ['user' => $user]) }}">いいね</a>
+                        <a href="{{ route('users.likes', ['user' => $user]) }}" class="active">いいね</a>
                     </li>
                 </ul>
                 @foreach($articles as $article)
