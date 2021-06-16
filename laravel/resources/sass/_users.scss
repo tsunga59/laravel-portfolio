@@ -16,17 +16,17 @@
             margin-bottom: 30px;
             position: relative;
             .profile_left {
-                width: 25%;
+                width: 30%;
             }
             .profile_right {
-                width: 70%;
+                width: 65%;
             }
             .profile_image {
                 img,
                 i {
-                    width: 130px;
-                    height: 130px;
-                    border-radius: 130px;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 150px;
                 }
                 img {
                     object-fit: cover;
@@ -333,9 +333,9 @@
                 justify-content: center;
                 img,
                 i {
-                    width: 130px;
-                    height: 130px;
-                    border-radius: 130px;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 150px;
                 }
                 img {
                     object-fit: cover;

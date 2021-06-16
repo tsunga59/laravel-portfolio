@@ -19,13 +19,13 @@
             @endif
             <h2>プロフィール編集フォーム</h2>
             <dl>
-                <dd class="profile_image_area">
+                <dd class="profile_image_area js-image-picker">
                     <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}" style="display: none">
                     <label for="profile_image">
-                        @if(isset($user->profile_image))
-                        <img src="{{ old('profile_image') ?? $user->profile_image }}" accept="image/*">
+                        @if(!empty($user->profile_image))
+                        <img src="/storage/profile_images/{{ $user->profile_image }}" accept="image/*">
                         @else
-                        <i class="far fa-user fa-4x"></i>
+                        <img src="/images/default-profile.png">
                         @endif
                     </label>
                 </dd>

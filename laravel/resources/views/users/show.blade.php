@@ -10,8 +10,11 @@
             <div class="profile_top">
                 <div class="profile_left">
                     <div class="profile_image">
+                        @if(!empty($user->profile_image))
                         <img src="/storage/profile_images/{{ $user->profile_image }}">
-                        {{-- <i class="far fa-user fa-3x"></i> --}}
+                        @else
+                        <i class="far fa-user fa-4x"></i>
+                        @endif
                     </div>
                 </div>
                 <div class="profile_right">
