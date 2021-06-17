@@ -112,6 +112,38 @@ class UserController extends Controller
     }
 
     /**
+     * フォロー中ユーザーを一覧表示
+     * 
+     * @param User $user
+     * @return view
+     */
+    public function followings(User $user)
+    {
+        $followings = $user->followings->sortByDesc('created_at');
+
+        return view('users.followings', [
+            'user' => $user,
+            'followings' => $followings,
+        ]);
+    }
+
+    /**
+     * フォロワーを一覧表示
+     *
+     * @param User $user
+     * @return view
+     */
+    public function followers(User $user)
+    {
+        $followers = $user->followers->sortByDesc('created_at');
+
+        return view('users.followers', [
+            'user' => $user,
+            'followers' => $followers,
+        ]);
+    }
+
+    /**
      * フォロー追加処理
      * 
      * @param Request $request, User $user

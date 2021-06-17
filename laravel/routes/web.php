@@ -62,6 +62,8 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
         Route::get('/{user}/likes', [UserController::class, 'likes'])->name('likes');
+        Route::get('/{user}/followings', [UserController::class, 'followings'])->name('followings');
+        Route::get('/{user}/followers', [UserController::class, 'followers'])->name('followers');
         // フォロー関連処理
         Route::put('/{user}/follow', [UserController::class, 'follow'])->name('follow');
         Route::delete('/{user}/follow', [UserController::class, 'unfollow'])->name('unfollow');
