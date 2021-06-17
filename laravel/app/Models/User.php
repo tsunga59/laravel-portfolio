@@ -60,4 +60,36 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Article', 'likes')->withTimestamps();
     }
+
+    public function followings()
+    {
+        return $this->belongsToMany('App\Models\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany('App\Models\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
+    }
+
+    // ユーザーのフォロー有無を判定
+    public function hasFollowed(?User $user)
+    {
+        if($user) {
+            return (bool)$this->followers->where('id', $user->id)->count();
+        }
+        return false;
+    }
+
+    // フォロー数を取得
+    public function getCountFollowingsAttribute()
+    {
+        return $this->followings->count();
+    }
+    
+    // フォロワー数を取得
+    public function getCountFollowersAttribute()
+    {
+        return $this->followers->count();
+    }
+
 }

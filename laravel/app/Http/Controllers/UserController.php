@@ -110,4 +110,71 @@ class UserController extends Controller
             'articles' => $articles,
         ]);
     }
+
+    /**
+     * フォロー中ユーザーを一覧表示
+     * 
+     * @param User $user
+     * @return view
+     */
+    public function followings(User $user)
+    {
+        $followings = $user->followings->sortByDesc('created_at');
+
+        return view('users.followings', [
+            'user' => $user,
+            'followings' => $followings,
+        ]);
+    }
+
+    /**
+     * フォロワーを一覧表示
+     *
+     * @param User $user
+     * @return view
+     */
+    public function followers(User $user)
+    {
+        $followers = $user->followers->sortByDesc('created_at');
+
+        return view('users.followers', [
+            'user' => $user,
+            'followers' => $followers,
+        ]);
+    }
+
+    /**
+     * フォロー追加処理
+     * 
+     * @param Request $request, User $user
+     * @return Array
+     */
+    public function follow(Request $request, User $user)
+    {
+        if($user->id === $request->user()->id) {
+            return abort('404', '自分をフォローすることはできません。');
+        }
+
+        $request->user()->followings()->detach($user);
+        $request->user()->followings()->attach($user);
+
+        return ['user' => $user];
+    }
+
+    /**
+     * フォロー削除処理
+     * 
+     * @param Request $request, User $user
+     * @return Array
+     */
+    public function unfollow(Request $request, User $user)
+    {
+        if($user->id === $request->user()->id) {
+            return abort('404', '自分をフォローすることはできません。');
+        }
+
+        $request->user()->followings()->detach($user);
+
+        return ['user' => $user];
+    }
 }
