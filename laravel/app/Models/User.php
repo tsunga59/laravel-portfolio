@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
+    public function followings()
+    {
+        return $this->belongsToMany('App\Models\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
+    }
+
     // ユーザーのフォロー有無を判定
     public function hasFollowed(?User $user)
     {

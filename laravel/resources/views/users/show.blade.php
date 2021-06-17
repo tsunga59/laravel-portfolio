@@ -34,6 +34,8 @@
                     @else
                     <follow-button
                       :initial-has-followed='@json($user->hasFollowed(Auth::user()))'
+                      :authorized='@json(Auth::check())'
+                      endpoint="{{ route('users.follow', ['user' => $user]) }}"
                     >
                     </follow-button>
                     @endif

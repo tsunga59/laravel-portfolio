@@ -3,16 +3,11 @@
     <button
       class="follow-btn"
       :class="{'followed': this.hasFollowed}"
+      type="button"
+      @click="hasFollowed ? unfollow() : follow()"
     >
       <i
-        v-if="this.hasFollowed"
-        class="fas fa-user-check"
-        @click="unfollow()"
-      />
-      <i
-        v-else
-        class="fas fa-user-plus"
-        @click="follow()"
+        :class="this.hasFollowed ? 'fas fa-user-check' : 'fas fa-user-plus'"
       />
     {{ this.hasFollowed ? 'フォロー中' : 'フォロー' }}
     </button>
@@ -26,10 +21,36 @@
         type: Boolean,
         default: false,
       },
+      authorized: {
+        type: Boolean,
+        default: false,
+      },
+      endpoint: {
+        type: String,
+      },
     },
     data() {
       return {
         hasFollowed: this.initialHasFollowed,
+      }
+    },
+    methods: {
+      async follow() {
+        if(!this.authorized) {
+          alert('フォローをするにはログインが必要です。')
+          return
+        }
+
+        await axios.put(this.endpoint)
+          .then(res => {
+            this.hasFollowed = true
+          });
+      },
+      async unfollow() {
+        await axios.delete(this.endpoint)
+          .then(res => {
+            this.hasFollowed = false
+          });
       }
     },
   }

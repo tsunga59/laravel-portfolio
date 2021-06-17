@@ -73,18 +73,9 @@
                     i {
                         margin-right: 2px;
                     }
-                    &:hover {
-                        color: $baseColor;
-                        background-color: $btnColor;
-                        opacity: 1;
-                    }
                     &.followed {
                         color: $baseColor;
                         background-color: $btnColor;
-                        &:hover {
-                            color: $btnColor;
-                            background-color: $baseColor;
-                        }
                     }
                 }
             }
