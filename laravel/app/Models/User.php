@@ -79,4 +79,16 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    // フォロワー数を取得
+    public function getCountFollowersAttribute()
+    {
+        return $this->followers->count();
+    }
+
+    // フォロー数を取得
+    public function getCountFollowingsAttribute()
+    {
+        return $this->followings->count();
+    }
 }
