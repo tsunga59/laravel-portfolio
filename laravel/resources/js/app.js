@@ -6,12 +6,14 @@ import Vue from 'vue'
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 import ArticleTagsInput from './components/ArticleTagsInput'
 import ArticleLike from './components/ArticleLike'
+import FollowButton from './components/FollowButton'
 
 const app = new Vue({
     el: '#app',
     components: {
         ArticleTagsInput,
         ArticleLike,
+        FollowButton,
     }
 });
 

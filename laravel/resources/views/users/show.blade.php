@@ -32,7 +32,11 @@
                     @if(Auth::id() === $user->id)
                     <a href="{{ route('users.edit', ['user' => $user]) }}" class="profile-edit-btn"><i class="fas fa-edit"></i>編集</a>
                     @else
-                    <a href="" class="follow-btn"><i class="fas fa-user"></i>フォロー</a>
+                    <follow-button
+                      {{-- :initial-has-followed='@json($user->hasFollowed(Auth::user()))' --}}
+                      :initial-has-followed='@json(false)'
+                    >
+                    </follow-button>
                     @endif
                 </div>
             </div>

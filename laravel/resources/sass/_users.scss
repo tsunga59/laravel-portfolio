@@ -67,7 +67,7 @@
                 .profile-edit-btn,
                 .follow-btn {
                     color: $btnColor;
-                    padding: 5px;
+                    padding: 5px 10px;
                     box-shadow: 0 0 3px $btnColor;
                     border-radius: 3px;
                     i {
@@ -77,6 +77,14 @@
                         color: $baseColor;
                         background-color: $btnColor;
                         opacity: 1;
+                    }
+                    &.followed {
+                        color: $baseColor;
+                        background-color: $btnColor;
+                        &:hover {
+                            color: $btnColor;
+                            background-color: $baseColor;
+                        }
                     }
                 }
             }
