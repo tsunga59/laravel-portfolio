@@ -61,25 +61,15 @@ class ArticleController extends Controller
             $user->wakeup_time->subHour($user->wakeup_time_range) <= $article->created_at
             && $article->created_at <= $user->wakeup_time
         ) {
-            $achievement = $user->achievements()->Create([
+            $achievement = $user->achievements()->firstOrCreate([
                 'date' => $article->created_at->startOfDay(),
             ]);
+
+            // 新規作成された場合、セッションを持たせポップアップを表示
+            if($achievement->wasRecentlyCreated) {
+                session()->flash('achievement_message', '目標達成おめでとうございます！');
+            }
         }
-
-        // if (
-        //     $user->wake_up_time->copy()->subHour($user->wakeup_time_range) <= $article->created_at
-        //     && $article->created_at <= $user->wakeup_time
-        // ) {
-        //     $result = $user->achievements()->firstOrCreate([
-        //         'date' => $article->created_at->copy()->startOfDay(),
-        //     ]);
-
-        //     // 本日の早起き達成記録が、レコードに記録されたかを判定。一日最大一回のみ、早起き達成メッセージを表示。
-        //     if ($result->wasRecentlyCreated) {
-        //         session()->flash('achivement_message', '目標達成おめでとうございます！');
-        //     }
-        // }
-
 
         return redirect()->route('articles.index');
     }
