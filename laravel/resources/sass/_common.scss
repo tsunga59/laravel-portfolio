@@ -2,7 +2,6 @@
 /* ============================================ */
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
 }
 body {
     font-family: 'Noto Sans JP', "游ゴシック体", sans-serif;
@@ -11,7 +10,7 @@ body {
     line-height: 1.5;
     color: $fontColor;
     background-color: $bgColor;
-    // overflow-x: hidden;
+    position: relative;
 }
 section {
     width: 100%;

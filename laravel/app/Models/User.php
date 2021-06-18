@@ -92,4 +92,8 @@ class User extends Authenticatable
         return $this->followers->count();
     }
 
+    public function achievements()
+    {
+        return $this->hasMany('App\Models\Achivement');
+    }
 }

@@ -54,6 +54,26 @@ class ArticleController extends Controller
             $article->tags()->attach($tag);
         });
 
+
+
+        // 早起き成功かどうか判定し、成功の場合にその日付をDBに履歴として保存する
+        $user = $request->user();
+        if (
+            $user->wake_up_time->copy()->subHour($user->wakeup_time_range) <= $article->created_at
+            && $article->created_at <= $user->wakeup_time
+        ) {
+            $result = $user->achievements()->firstOrCreate([
+                'date' => $article->created_at->copy()->startOfDay(),
+            ]);
+
+            // 本日の早起き達成記録が、レコードに記録されたかを判定。一日最大一回のみ、早起き達成メッセージを表示。
+            if ($result->wasRecentlyCreated) {
+                session()->flash('achivement_message', '目標達成おめでとうございます！');
+            }
+        }
+
+        
+
         return redirect()->route('articles.index');
     }
 
