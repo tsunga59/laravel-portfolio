@@ -19,7 +19,7 @@
             @endif
             <h2>プロフィール編集フォーム</h2>
             <dl>
-                <dd class="profile_image_area js-image-picker">
+                <dd class="profile_image_area js-image-picker" id="js-image-picker">
                     <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}" style="display: none">
                     <label for="profile_image">
                         @if(!empty($user->profile_image))

@@ -50,12 +50,12 @@
                 <li>
                     <i class="far fa-calendar-alt fa-2x"></i>
                     <h2>朝活達成日数</h2>
-                    <p>10日</p>
+                    <p>{{ $user->count_achievements }}日</p>
                 </li>
                 <li>
                     <i class="far fa-chart-bar fa-2x"></i>
                     <h2>朝活達成率</h2>
-                    <p>75%</p>
+                    <p>{{ $user->calc_achievements }}%</p>
                 </li>
             </ul>
             <div class="article_area">

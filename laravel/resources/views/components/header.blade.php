@@ -19,7 +19,11 @@
             <li class="pc"><a href="{{ route('articles.create') }}"><i class="fas fa-edit"></i>投稿する</a></li>
             <li class="sp"><a href="{{ route('articles.create') }}"><i class="fas fa-edit fa-lg"></i></a></li>
             <li class="dropdown">
+                @if(!empty(Auth::user()->profile_image))
+                <img src="/storage/profile_images/{{ Auth::user()->profile_image }}">
+                @else
                 <i class="far fa-user fa-lg"></i>
+                @endif
                 <div class="dropdown-content">
                     <a href="{{ route('users.show', ['user' => Auth::user()]) }}">
                         {{ Auth::user()->name }}<br>

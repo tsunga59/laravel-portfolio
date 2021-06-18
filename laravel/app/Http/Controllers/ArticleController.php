@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Tag;
@@ -53,6 +54,23 @@ class ArticleController extends Controller
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
         });
+
+        // 朝活達成の判定・DB登録
+        $user = $request->user();
+        // 投稿時間が目標時間範囲内かつ目標時間より早いかどうかの判定
+        if(
+            Carbon::parse($user->wakeup_time)->subHour($user->wakeup_time_range) <= $article->created_at
+            && $article->created_at <= Carbon::parse($user->wakeup_time)
+        ) {
+            $achievement = $user->achievements()->firstOrCreate([
+                'date' => $article->created_at->startOfDay(),
+            ]);
+
+            // 新規作成された場合、セッションを持たせポップアップを表示
+            if($achievement->wasRecentlyCreated) {
+                session()->flash('achievement_message', '目標達成おめでとうございます！');
+            }
+        }
 
         return redirect()->route('articles.index');
     }
@@ -125,7 +143,7 @@ class ArticleController extends Controller
     {
         $article->delete();
 
-        return redirect()->route('articles.index');
+        return redirect()->back();
     }
 
     /**

@@ -2,7 +2,6 @@
 /* ============================================ */
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
 }
 body {
     font-family: 'Noto Sans JP', "游ゴシック体", sans-serif;
@@ -11,7 +10,7 @@ body {
     line-height: 1.5;
     color: $fontColor;
     background-color: $bgColor;
-    // overflow-x: hidden;
+    position: relative;
 }
 section {
     width: 100%;
@@ -199,6 +198,7 @@ section {
         font-weight: bold;
     }
     form {
+        display: none;
         min-width: 330px;
         position: absolute;
         top: 50%;
@@ -233,16 +233,22 @@ section {
             }
         }
         .dropdown {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $baseColor;
-            width: 35px;
-            height: 35px;
-            border-radius: 35px;
             position: relative;
+            img,
             i {
+                width: 35px;
+                height: 35px;
+                border-radius: 35px;
+            }
+            img {
+                object-fit: cover;
+            }
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 color: $darkGray;
+                background-color: $baseColor;
                 margin-right: 0;
             }
             &:hover {
@@ -262,7 +268,6 @@ section {
                 opacity: 0;
                 visibility: hidden;
                 transition: all .3s ease;
-                // z-index: 100;
                 a,
                 button {
                     display: block;
