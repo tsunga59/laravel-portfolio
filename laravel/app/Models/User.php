@@ -106,4 +106,23 @@ class User extends Authenticatable
             ->where('date', '<=', Carbon::now()->endOfMonth()->toDateString())
             ->count();
     }
+
+    // ユーザーの朝活達成率を取得
+    public function getCalcAchievementsAttribute()
+    {
+        // 月の途中にアカウント作成した場合、月の合計日数を調整
+        if(
+            Carbon::parse($this->created_at) >= Carbon::now()->startOfMonth()
+            && Carbon::parse($this->created_at) <= Carbon::now()->endOfMonth()
+        ) {
+            // アカウント作成日と月の合計日数の差分を取得
+            $totalDays =  Carbon::parse($this->created_at)->diffInDays(Carbon::now()->endOfMonth());
+        } else {
+            $totalDays = date('t');
+        }
+        
+        $achievementDays =  $this->getCountAchievementsAttribute();
+
+        return round($achievementDays / $totalDays * 100, 1);
+    }
 }

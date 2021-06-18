@@ -233,16 +233,22 @@ section {
             }
         }
         .dropdown {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $baseColor;
-            width: 35px;
-            height: 35px;
-            border-radius: 35px;
             position: relative;
+            img,
             i {
+                width: 35px;
+                height: 35px;
+                border-radius: 35px;
+            }
+            img {
+                object-fit: cover;
+            }
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 color: $darkGray;
+                background-color: $baseColor;
                 margin-right: 0;
             }
             &:hover {
@@ -262,7 +268,6 @@ section {
                 opacity: 0;
                 visibility: hidden;
                 transition: all .3s ease;
-                // z-index: 100;
                 a,
                 button {
                     display: block;
