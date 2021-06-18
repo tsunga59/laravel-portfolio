@@ -311,22 +311,24 @@
         }
         &_card {
             text-align: center;
-            background-color: $baseColor;
-            padding: 80px 60px;
+            // background-color: $baseColor;
+            background: radial-gradient($lightBlue 0%, $darkBlue 100%);
+            padding: 80px;
             box-sizing: border-box;
             border-radius: 5px;
             position: relative;
             h2 {
-                font-size: 2rem;
-                font-weight: bold;
-                margin-bottom: 20px;
+                font-size: 2.2rem;
+                color: $baseColor;
+                margin-bottom: 25px;
             }
             p {
-                font-size: 2rem;
-                font-weight: bold;
+                font-size: 1.8rem;
+                color: $baseColor;
                 span {
-                    color: $baseColor;
-                    background-color: $darkBlue;
+                    font-weight: bold;
+                    color: $darkBlue;
+                    background-color: $baseColor;
                     padding: 8px 10px;
                     box-sizing: border-box;
                     border-radius: 3px;
@@ -348,6 +350,7 @@
             .close_btn {
                 font-size: 3.6rem;
                 font-weight: bold;
+                color: $baseColor;
                 position: absolute;
                 top: 10px;
                 right: 20px;

@@ -105,46 +105,17 @@
         </div>
         @endforeach
     </div>
-
-    @if(!session('achievement_message'))
-    <!-- 早起き達成時のメッセージを表示するモーダルウィンドウ -->
+    @if(session('achievement_message'))
+    <!-- 朝活達成ポップアップ -->
     <div class="modal" id="js-modal">
         <div class="modal_card">
             {{-- <h2>{{ session('achivement_message') }}</h2> --}}
             <h2>目標達成おめでとうございます！</h2>
-            <p>{{ date('n') }}月の朝活達成日数： <span>10日</span></p>
-            <a href="{{ route('articles.create') }}" class="btn green">自慢する</a>
+            <p>{{ date('n') }}月の朝活達成日数： <span>{{ Auth::user()->count_achievements }}日</span></p>
+            <a href="{{ route('articles.create') }}" class="btn green">仲間に自慢する</a>
             <div class="close_btn" id="js-modal-close">×</div>
         </div>
     </div>
-    {{-- <div class="modal fade" id="achievement-modal" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center font-weight-bold">
-                    <p class="h5 text-primary  font-weight-bold mb-3">
-                    <i class="fas fa-award mr-2"></i>
-                    {{ session('msg_achievement') }}
-                    </p>
-                    <p>
-                    <span class="d-inline-block">{{ date('m') }}月の早起き　</span>
-                    <span class="d-inline-block rounded peach-gradient text-white p-1">
-                        {{
-                        \Auth::user()->achievements()
-                        ->where('date', '>=', \Carbon\Carbon::now()->startOfMonth()->toDateString())
-                        ->where('date', '<=', \Carbon\Carbon::now()->endOfMonth()->toDateString())
-                        ->count()
-                        }}日目
-                    </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     @endif
 </section>
 
