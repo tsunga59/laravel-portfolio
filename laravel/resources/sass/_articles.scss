@@ -311,7 +311,6 @@
         }
         &_card {
             text-align: center;
-            // background-color: $baseColor;
             background: radial-gradient($lightBlue 0%, $darkBlue 100%);
             padding: 80px;
             box-sizing: border-box;
@@ -369,7 +368,6 @@
 /* create */
 /* ============================================ */
 .create {
-    height: 100vh;
     .container {
         display: flex;
         justify-content: center;
@@ -416,7 +414,6 @@
 /* edit */
 /* ============================================ */
 .edit {
-    height: 100vh;
     .container {
         display: flex;
         justify-content: center;

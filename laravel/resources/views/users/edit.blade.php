@@ -16,6 +16,10 @@
                         <p>{{ $error }}</p>
                     @endforeach
                 </div>
+            @else
+                <div class="error_area">
+                    <p>ゲストユーザーはプロフィール画像・ユーザー名を編集できません。</p>
+                </div>
             @endif
             <h2>プロフィール編集フォーム</h2>
             <dl>
