@@ -42,6 +42,7 @@
                 .name {
                     font-size: 1.8rem;
                     font-weight: bold;
+                    letter-spacing: -.01rem;
                     padding: 5px 0;
                 }
                 .info {
@@ -164,6 +165,7 @@
                     .profile_text {
                         a {
                             font-weight: bold;
+                            letter-spacing: -.01rem;
                         }
                         span {
                             display: block;
@@ -297,6 +299,7 @@
                         .profile_text {
                             a {
                                 font-size: 1.5rem;
+                                letter-spacing: -.01rem;
                             }
                             span {
                                 font-size: 1.3rem;
@@ -457,7 +460,35 @@
 .users {
     .card {
         width: 100%;
-        padding: 20px;
+        padding: 20px 0 0;
+        .profile_top {
+            padding: 0 20px;
+        }
+        .achivement_area {
+            padding: 0 20px;
+        }
+        .article_area {
+            .card {
+                padding: 20px;
+                .profile_area {
+                    .profile_menu {
+                        .edit-btn {
+                            box-shadow: none;
+                            i {
+                                margin-right: 0;
+                            }
+                        }
+                        .delete-btn {
+                            margin-left: 3px;
+                            box-shadow: none;
+                            i {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     .user_form {
         width: 100%;

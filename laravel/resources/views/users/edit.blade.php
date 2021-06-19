@@ -16,7 +16,7 @@
                         <p>{{ $error }}</p>
                     @endforeach
                 </div>
-            @else
+            @elseif(Auth::id() == config('user.guest_user_id'))
                 <div class="error_area">
                     <p>ゲストユーザーはプロフィール画像・ユーザー名を編集できません。</p>
                 </div>
@@ -34,13 +34,13 @@
                     </label>
                 </dd>
                 <dt>
-                    <label for="name">ユーザー名</label>
+                    <label for="name">ユーザー名(12文字以内)</label>
                 </dt>
                 <dd>
                     <input type="text" name="name" id="name" value="{{ old('name') ?? $user->name }}" {{ Auth::id() == config('user.guest_user_id') ? 'disabled' : '' }}>
                 </dd>
                 <dt>
-                    <label for="self_introduction">自己紹介・意気込み(最大200文字)</label>
+                    <label for="self_introduction">自己紹介・意気込み(200文字以内)</label>
                 </dt>
                 <dd>
                     <textarea name="self_introduction" id="self_introduction" rows="6">{{ old('self_introduction') ?? $user->self_introduction }}</textarea>

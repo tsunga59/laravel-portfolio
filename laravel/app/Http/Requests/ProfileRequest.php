@@ -31,7 +31,7 @@ class ProfileRequest extends FormRequest
             ];
         } else {
             return [
-                'name' => 'required|string|max:255|unique:users,name,'.Auth::user()->name.',name',
+                'name' => 'required|string|max:12|unique:users,name,'.Auth::user()->name.',name',
                 'profile_image' => 'file|image|max:2048',
                 'self_introduction' => 'required|string|max:200',
                 'wakeup_time' => 'required|date_format:H:i',

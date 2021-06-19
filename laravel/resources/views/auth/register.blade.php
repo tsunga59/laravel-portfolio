@@ -23,7 +23,7 @@
                         <label for="name"><i class="fas fa-user"></i></label>
                     </th>
                     <td>
-                        <input type="text" name="name" id="name" placeholder="ユーザー名" autofocus value="{{ old('name') }}">
+                        <input type="text" name="name" id="name" placeholder="ユーザー名(12文字以内)" autofocus value="{{ old('name') }}">
                     </td>
                 </tr>
                 <tr>
