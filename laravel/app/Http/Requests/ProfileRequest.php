@@ -24,12 +24,19 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string|max:255|unique:users,name,'.Auth::user()->name.',name',
-            'profile_image' => 'file|image|max:2048',
-            'self_introduction' => 'required|string|max:200',
-            'wakeup_time' => 'required|date_format:H:i',
-        ];
+        if(Auth::id() == config('user.guest_user_id')) {
+            return [
+                'self_introduction' => 'required|string|max:200',
+                'wakeup_time' => 'required|date_format:H:i',
+            ];
+        } else {
+            return [
+                'name' => 'required|string|max:255|unique:users,name,'.Auth::user()->name.',name',
+                'profile_image' => 'file|image|max:2048',
+                'self_introduction' => 'required|string|max:200',
+                'wakeup_time' => 'required|date_format:H:i',
+            ];
+        }
     }
 
     public function attributes()

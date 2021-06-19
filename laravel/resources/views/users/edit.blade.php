@@ -20,7 +20,7 @@
             <h2>プロフィール編集フォーム</h2>
             <dl>
                 <dd class="profile_image_area js-image-picker" id="js-image-picker">
-                    <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}" style="display: none">
+                    <input type="file" name="profile_image" id="profile_image" value="{{ old('profile_image') ?? $user->profile_image }}" style="display: none" {{ Auth::id() == config('user.guest_user_id') ? 'disabled' : '' }}>
                     <label for="profile_image">
                         @if(!empty($user->profile_image))
                         <img src="/storage/profile_images/{{ $user->profile_image }}" accept="image/*">
@@ -33,7 +33,7 @@
                     <label for="name">ユーザー名</label>
                 </dt>
                 <dd>
-                    <input type="text" name="name" id="name" value="{{ old('name') ?? $user->name }}">
+                    <input type="text" name="name" id="name" value="{{ old('name') ?? $user->name }}" {{ Auth::id() == config('user.guest_user_id') ? 'disabled' : '' }}>
                 </dd>
                 <dt>
                     <label for="self_introduction">自己紹介・意気込み(最大200文字)</label>

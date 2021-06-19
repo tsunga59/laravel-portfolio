@@ -54,7 +54,7 @@ class UserController extends Controller
      */
     public function update(ProfileRequest $request, User $user)
     {
-        $user->fill($request->all());
+        $user->fill($request->validated());
 
         // 画像アップロード処理
         if($request->has('profile_image')) {
