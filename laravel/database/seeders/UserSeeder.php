@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 // ゲストユーザー
                 'name' => 'ゲストユーザー',
                 'email' => 'guest@com',
-                'password' => Hash::make('guestpassword'),
+                'password' => Hash::make(config('user.guest_user_password')),
             ],
             [
                 // テストユーザー

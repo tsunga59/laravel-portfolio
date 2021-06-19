@@ -102,12 +102,9 @@ class LoginController extends Controller
      * 
      * @return RedirectResponse
      */
-    // ゲストユーザー情報
-    private const GUEST_USER_ID = 1;
-
     public function guestLogin()
     {
-        if(Auth::loginUsingId(self::GUEST_USER_ID)) {
+        if(Auth::loginUsingId(config('user.guest_user_id'))) {
             return redirect($this->redirectPath());
         }
     }
