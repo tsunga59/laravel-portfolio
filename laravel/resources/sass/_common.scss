@@ -68,7 +68,6 @@ section {
 /* ============================================ */
 .register,
 .login {
-    height: 100vh;
     .container {
         display: flex;
         justify-content: center;
@@ -380,5 +379,19 @@ section {
 // レスポンシブ
 @media screen and (max-width: 767px) {
 
+.modal {
+    padding: 0 20px;
+    &_card {
+        width: 100%;
+        padding: 50px 20px;
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.6rem;
+        }
+    }
+}
             
 }

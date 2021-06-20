@@ -10,7 +10,7 @@
         @include('articles.card')
         @endforeach
     </div>
-    @if(session('achievement_message'))
+    @if(!session('achievement_message'))
     <!-- 朝活達成ポップアップ -->
     @include('articles.modal')
     @endif
