@@ -17,24 +17,7 @@
                 </div>
             @endif
             <h2>新規投稿フォーム</h2>
-            <dl>
-                <dt>
-                    <label for="content">投稿本文</label>
-                </dt>
-                <dd>
-                    <textarea name="content" id="content" rows="8">{{ old('content') }}</textarea>
-                </dd>
-                <dt>
-                    <label for="tags">タグ(最大5個)</label>
-                </dt>
-                <dd>
-                    <article-tags-input
-                     :initial-tags='@json($tagNames ?? [])'
-                     :autocomplete-items='@json($allTagNames ?? [])'
-                    >
-                    </article-tags-input>
-                </dd>
-            </dl>
+            @include('articles.form')
             <button type="submit" class="btn green">投稿する</button>
         </form>
     </div>

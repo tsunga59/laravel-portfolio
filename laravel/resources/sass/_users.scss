@@ -11,6 +11,7 @@
         .profile_top {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             width: 100%;
             padding: 0 40px;
             margin-bottom: 30px;
@@ -36,12 +37,16 @@
                     justify-content: center;
                     align-items: center;
                     background-color: $lightGray;
+                    &.sp {
+                        display: none;
+                    }
                 }
             }
             .profile_text {
                 .name {
                     font-size: 1.8rem;
                     font-weight: bold;
+                    letter-spacing: -.01rem;
                     padding: 5px 0;
                 }
                 .info {
@@ -164,6 +169,7 @@
                     .profile_text {
                         a {
                             font-weight: bold;
+                            letter-spacing: -.01rem;
                         }
                         span {
                             display: block;
@@ -297,6 +303,7 @@
                         .profile_text {
                             a {
                                 font-size: 1.5rem;
+                                letter-spacing: -.01rem;
                             }
                             span {
                                 font-size: 1.3rem;
@@ -457,7 +464,88 @@
 .users {
     .card {
         width: 100%;
-        padding: 20px;
+        padding: 20px 0 0;
+        .profile_top {
+            padding: 0 20px;
+            margin-bottom: 15px;
+            .profile_left,
+            .profile_right {
+                width: 100%;
+            }
+            .profile_image {
+                margin-bottom: 5px;
+                img,
+                i {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 80px;
+                    &.pc {
+                        display: none;
+                    }
+                    &.sp {
+                        display: flex;
+                    }
+                }
+            }
+            .profile_text {
+                .info {
+                    margin-bottom: 10px;
+                }
+            }
+            .profile_menu {
+                right: 20px;
+            }
+        }
+        .achivement_area {
+            padding: 0 20px;
+            margin-bottom: 20px;
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 10px 20px;
+                border-bottom: none;
+                border-radius: 0;
+                &:first-of-type {
+                    border-radius: 3px 3px 0 0;
+                }
+                &:last-of-type {
+                    border-bottom: 1px solid $darkBlue;
+                    border-radius: 0 0 3px 3px;
+                }
+                h2 {
+                    margin: 0 15px 0 5px;
+                }
+                p {
+                    font-size: 1.8rem;
+                    width: 35%;
+                    padding: 3px 0;
+                }
+            }
+        }
+        .article_area {
+            .card {
+                padding: 20px;
+                .profile_area {
+                    .profile_menu {
+                        .edit-btn {
+                            box-shadow: none;
+                            i {
+                                margin-right: 0;
+                            }
+                        }
+                        .delete-btn {
+                            margin-left: 3px;
+                            box-shadow: none;
+                            i {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     .user_form {
         width: 100%;
