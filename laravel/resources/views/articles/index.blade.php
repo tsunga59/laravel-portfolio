@@ -8,7 +8,7 @@
     <div class="container">
         <div class="card_area">
             @foreach($articles as $article)
-            @include('articles.card')
+                @include('articles.card')
             @endforeach
         </div>
         <div class="sidebar">

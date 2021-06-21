@@ -1,11 +1,15 @@
 <div class="sidebar_card">
-    <h2>今月の朝活達成ランキング</h2>
+    <h2>{{ date('n') }}月の朝活達成ランキング</h2>
     @foreach ($ranked_users as $ranked_user)
-        <p class="rank{{ $ranked_user->rank }}">{{ $ranked_user->rank }} {{ $ranked_user->name }} <span>{{ $ranked_user->count_achievements }}日</span></p>
+        @include('articles.ranking')
     @endforeach
 </div>
 {{-- <div class="sidebar_card">
-    <h2>朝活達成ランク内訳<br>(前月の朝活達成率に応じて、該当ランクのバッジが表示されます)</h2>
+    <h2>朝活達成ランク内訳</h2>
+    <ul class="rank_area">
+        @include('articles.rank')
+    </ul>
+    <p><br>(前月の朝活達成率に応じて、該当ランクのバッジが表示されます)</p>
     <p>ブロンズ・シルバー・ゴールド・プラチナ・ダイヤモンド</p>
 </div> --}}
 
