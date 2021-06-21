@@ -6,11 +6,16 @@
 
 <section class="articles index">
     <div class="container">
-        @foreach($articles as $article)
-        @include('articles.card')
-        @endforeach
+        <div class="card_area">
+            @foreach($articles as $article)
+            @include('articles.card')
+            @endforeach
+        </div>
+        <div class="sidebar">
+            @include('articles.sidebar')
+        </div>
     </div>
-    @if(!session('achievement_message'))
+    @if(session('achievement_message'))
     <!-- 朝活達成ポップアップ -->
     @include('articles.modal')
     @endif

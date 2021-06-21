@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,12 +16,19 @@ class ArticleController extends Controller
      * 投稿を一覧表示
      * 
      * @return view
+     * @param User $user
      */
-    public function index()
+    public function index(User $user)
     {
         $articles = Article::all()->sortByDesc('created_at');
 
-        return view('articles.index', ['articles' => $articles]);
+        // 朝活達成ランキングのユーザーを取得
+        $ranked_users = $user->achievementsRanking();
+
+        return view('articles.index', [
+            'articles' => $articles,
+            'ranked_users' => $ranked_users,
+        ]);
     }
 
     /**

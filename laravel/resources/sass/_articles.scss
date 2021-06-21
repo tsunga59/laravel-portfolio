@@ -2,7 +2,7 @@
 /* ============================================ */
 .articles {
     .card {
-        width: 500px;
+        width: 550px;
         background-color: $baseColor;
         padding: 40px;
         box-sizing: border-box;
@@ -199,7 +199,7 @@
         }
     }
     .article_form {
-        width: 500px;
+        width: 550px;
         background-color: $baseColor;
         padding: 100px 60px 80px;
         box-sizing: border-box;
@@ -250,6 +250,18 @@
             }
         }
     }
+    .sidebar_card {
+        width: 450px;
+        background-color: $baseColor;
+        padding: 40px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        box-shadow: 0 0 5px rgba($color: $fontColor, $alpha: .5);
+        border-radius: 5px;
+        h2 {
+
+        }
+    }
 }
 
 // レスポンシブ
@@ -291,8 +303,7 @@
 .index {
     .container {
         display: flex;
-        align-items: center;
-        flex-direction: column;
+        justify-content: space-between;
     }
 }
 
