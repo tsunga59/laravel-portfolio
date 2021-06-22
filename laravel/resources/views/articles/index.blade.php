@@ -11,7 +11,7 @@
                 @include('articles.card')
             @endforeach
         </div>
-        <div class="sidebar">
+        <div class="sidebar" id="js-sidebar">
             @include('articles.sidebar')
         </div>
     </div>
@@ -19,6 +19,10 @@
     <!-- 朝活達成ポップアップ -->
     @include('articles.modal')
     @endif
+    <!-- SP時のランキング表示・非表示ボタン -->
+    <div class="sidebar_btn sp" id="js-sidebar-btn">
+        <i class="far fa-file-alt fa-lg" id="js-sidebar-icon"></i>
+    </div>
 </section>
 
 @endsection

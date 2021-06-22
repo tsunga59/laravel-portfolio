@@ -15,7 +15,7 @@ body {
 section {
     width: 100%;
     height: 100%;
-    padding: 60px 0;
+    padding: 120px 0 60px;
     box-sizing: border-box;
 }
 .container {
@@ -52,7 +52,7 @@ html {
     font-size: 55%;
 }
 section {
-    padding: 40px 20px;
+    padding: 100px 20px 40px;
 }
 .pc {
     display: none;
@@ -190,7 +190,7 @@ section {
     background: linear-gradient(to right, $darkBlue 0%, $lightBlue 100%);
     padding: 20px 40px;
     box-sizing: border-box;
-    position: relative;
+    position: fixed;
     z-index: 100;
     .logo {
         display: flex;

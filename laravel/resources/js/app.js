@@ -32,8 +32,30 @@ if(document.getElementById('js-image-picker') != null) {
 if(document.getElementById('js-modal-close') != null) {
     document.getElementById('js-modal-close')
         .addEventListener('click', function() {
-            console.log(1);
             const modal = document.getElementById('js-modal');
             modal.classList.add('hidden');
+        });
+}
+
+// SP時のランキング表示・非表示
+if(document.getElementById('js-sidebar-btn') != null) {
+    document.getElementById('js-sidebar-btn')
+        .addEventListener('click', function() {
+            const sidebar = document.getElementById('js-sidebar');
+            const sidebarBtn = document.getElementById('js-sidebar-btn');
+            const sidebarIcon = document.getElementById('js-sidebar-icon');
+            let sidebarOpen = false;
+
+            if(!sidebarOpen) {
+                sidebar.classList.add('show');
+                sidebarBtn.classList.add('show');
+                // sidebarIcon.classList.add('fas fa-times');
+                sidebarOpen = true;
+            } else {
+                sidebar.classList.remove('show');
+                sidebarBtn.classList.remove('show');
+                // sidebarIcon.classList.remove('fas fa-times');
+                sidebarOpen = false;
+            }
         });
 }
