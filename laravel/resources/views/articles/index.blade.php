@@ -19,9 +19,9 @@
     <!-- 朝活達成ポップアップ -->
     @include('articles.modal')
     @endif
-    <!-- SP時のランキング表示・非表示ボタン -->
-    <div class="sidebar_btn sp" id="js-sidebar-btn">
-        <i class="far fa-file-alt fa-lg" id="js-sidebar-icon"></i>
+    <!-- SP時のランキング表示ボタン -->
+    <div class="sidebar_open_btn sp" id="js-sidebar-open-btn">
+        <i class="far fa-file-alt fa-lg"></i>
     </div>
 </section>
 

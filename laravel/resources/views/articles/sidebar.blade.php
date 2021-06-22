@@ -8,3 +8,8 @@
     <h2>朝活達成ランクバッジ</h2>
     @include('articles.rank')
 </div>
+
+<!-- SP時のランキング非表示ボタン -->
+<div class="sidebar_close_btn sp" id="js-sidebar-close-btn">
+    <i class="fas fa-times fa-2x"></i>
+</div>
