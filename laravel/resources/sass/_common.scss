@@ -192,9 +192,17 @@ section {
     box-sizing: border-box;
     position: relative;
     z-index: 100;
-    h1 {
-        font-size: 2rem;
-        font-weight: bold;
+    .logo {
+        display: flex;
+        align-items: flex-end;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        img {
+            width: 40px;
+            height: auto;
+            margin-right: 8px;
+            object-fit: cover;
+        }
     }
     form {
         display: none;
@@ -293,14 +301,23 @@ section {
 
 .header {
     padding: 20px;
+    // .logo {
+    //     img {
+    //         width: 35px;
+    //     }
+    // }
     ul {
         position: absolute;
         top: 50%;
         right: 20px;
         transform: translateY(-50%);
         .dropdown {
-            width: 30px;
-            height: 30px;
+            img,
+            i {
+                width: 35px;
+                height: 35px;
+                border-radius: 35px;
+            }
         }
     }
 }
