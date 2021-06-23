@@ -10,9 +10,13 @@
             @include('users.user')
             <div class="article_area">
                 @include('users.nav', ['hasArticles' => false, 'hasLikes' => false])
-                @foreach($followers as $person)
+                @forelse($followers as $person)
                 @include('users.person_card')
-                @endforeach
+                @empty
+                <div class="card">
+                    <p class="no_comments">フォロワーが見つかりません。</p>
+                </div>
+                @endforelse
             </div>
         </div>
     </div>

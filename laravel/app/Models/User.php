@@ -125,4 +125,35 @@ class User extends Authenticatable
 
         return round($achievementDays / $totalDays * 100, 1);
     }
+
+    // 朝活達成日数ランキングを取得
+    public function achievementsRanking()
+    {
+        // 上位5名のユーザーを順番に取得
+        $ranked_users = User::withCount(['achievements' => function($query) {
+            $query->where('date', '>=', Carbon::now()->startOfMonth()->toDateString())
+            ->where('date', '<=', Carbon::now()->endOfMonth()->toDateString());
+        }])
+            ->having('achievements_count', '>', 0)
+            ->orderBy('achievements_count', 'desc')
+            ->limit(5)
+            ->get();
+
+        // 上位ユーザーのランキング順位を取得(同率の場合は、同じ順位を繰り返す)
+        if(!empty($ranked_users)) {
+            $rank = 1;
+            $previousUser = $ranked_users->first();
+
+            $ranked_users->each(function($user) use (&$previousUser, &$rank) {
+                if($previousUser->achievements_count > $user->achievements_count) {
+                    $rank++;
+                    $previousUser = $user;
+                }
+                $user->rank = $rank;
+                return $user;
+            });
+        }
+
+        return $ranked_users;
+    }
 }

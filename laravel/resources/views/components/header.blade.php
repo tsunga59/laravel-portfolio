@@ -1,7 +1,8 @@
 <header class="header">
-    <h1>
-        <a href="{{ route('articles.index') }}">Morning App</a>
-    </h1>
+    <a href="{{ route('articles.index') }}" class="logo">
+        <img src="/images/logo.png" alt="Acmo">
+        Acmo
+    </a>
     <form action="" method="get" class="pc">
         <input type="text" name="search" placeholder="朝活仲間を探そう！">
         <button><i class="fas fa-search"></i></button>
@@ -17,7 +18,7 @@
 
             @auth
             <li class="pc"><a href="{{ route('articles.create') }}"><i class="fas fa-edit"></i>投稿する</a></li>
-            <li class="sp"><a href="{{ route('articles.create') }}"><i class="fas fa-edit fa-lg"></i></a></li>
+            <li class="sp"><a href="{{ route('articles.create') }}"><i class="fas fa-edit fa-2x"></i></a></li>
             <li class="dropdown">
                 @if(!empty(Auth::user()->profile_image))
                 <img src="/storage/profile_images/{{ Auth::user()->profile_image }}">
