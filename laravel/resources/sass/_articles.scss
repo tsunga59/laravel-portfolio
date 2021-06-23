@@ -517,10 +517,10 @@
 /* tags-show */
 /* ============================================ */
 .tags-show {
+    position: relative;
     .container {
         display: flex;
-        align-items: center;
-        flex-direction: column;
+        justify-content: space-between;
     }
     .title-tag {
         text-align: center;
@@ -542,6 +542,9 @@
 @media screen and (max-width: 767px) {
 
 .tags-show {
+    .container {
+        flex-direction: column;
+    }
     .title-tag {
         width: 100%;
     }
