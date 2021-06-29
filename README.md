@@ -44,12 +44,13 @@ URL: https://acmo-app.com
 * Docker-compose: 1.29.1
 * Nginx: 1.21.0
 * MySQL: 5.7.34
-* AWS (IAM,VPC,EC2,RDS,ELB,S3,CloudWatch,etc.)
+* AWS(IAM, VPC, EC2, RDS, ELB, S3, CloudWatch,etc.)
 
-#### その他
-* Figma
-* draw.io
-* Nortion
+#### その他ツール
+* Git/Github(ソースコード・バージョン管理)
+* Figma(ワイヤー作成)
+* draw.io(ER図・インフラ構成図作成)
+* Nortion(タスク管理・開発メモ)
 
 ## 実装機能
 
