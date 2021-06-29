@@ -1,8 +1,12 @@
-## 朝活SNSサービス「Acmo」
-#### ターゲット
-* URL: https://acmo-app.com
+## Acmo
+「ActiveなMorning(朝活)を通して、1日をもっと有意義に過ごそう」というコンセプトをもとに開発した*朝活SNSサービス*
+URL: https://acmo-app.com
 
 ## サービス概要
+#### ターゲット
+
+#### メリット
+
 
 ## 使用技術・ツール
 
