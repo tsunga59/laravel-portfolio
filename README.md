@@ -1,5 +1,5 @@
 ## 朝活SNSサービス「Acmo」
-### ターゲット
+#### ターゲット
 * URL: https://acmo-app.com
 
 ## サービス概要
