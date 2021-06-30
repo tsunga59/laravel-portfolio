@@ -74,13 +74,13 @@ URL: https://acmo-app.com
 
 ![url_structure](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/url_structure.png)
 
-#### テーブル設計(ER図)
+## テーブル設計(ER図)
 
-DB画像
+![table_structure](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/table_structure.png)
 
 #### インフラ設計(構成図)
 
-AWS画像
+![aws_structure](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/aws_structure.png)
 
 ## 実装機能
 
