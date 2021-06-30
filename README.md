@@ -54,7 +54,7 @@ URL: https://acmo-app.com
 * Docker-compose: 1.29.1
 * Nginx: 1.21.0
 * MySQL: 5.7.34
-* AWS(IAM, VPC, EC2, RDS, ELB, S3, CloudWatch,etc.)
+* AWS(IAM, VPC, EC2, RDS, Route53, ACM, ELB, S3, CloudWatch,etc.)
 
 #### その他ツール
 
@@ -65,20 +65,29 @@ URL: https://acmo-app.com
 
 ## 実装機能
 
+#### ユーザー登録・ログイン機能
+
+#### ソーシャル(Google)ログイン機能
+
+#### ゲストログイン機能
+
 #### 投稿(CRUD)機能
 
 基本的な〇〇
 
-#### 投稿(CRUD)機能
-#### 投稿(CRUD)機
+#### タグ付け機能
 
-#### 投稿(CRUD)機能
+#### いいね機能
 
-#### 投稿(CRUD)機能
+#### コメント機能
 
-#### 投稿(CRUD)機能
+#### プロフィール編集機能
 
-#### 投稿(CRUD)機能
+#### フォロー機能
+
+#### 朝活達成判定(ポップアップ表示)機能
+
+#### 朝活達成ランキング機能
 
 
 ## 工夫したこと
