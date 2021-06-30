@@ -65,12 +65,12 @@ URL: https://acmo-app.com
 
 #### ワイヤーフレーム
 
-URL: https://www.figma.com/file/PlVDANTbGP1jRUfpvCG3Df/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?node-id=0%3A1
+[Figma](https://www.figma.com/file/PlVDANTbGP1jRUfpvCG3Df/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?node-id=0%3A1)
 ![wireframe](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/wireframe.png)
 
 #### URL設計
 
-URL: https://docs.google.com/spreadsheets/d/1-HKQVHc2H1sRljCJYMSkFLuDaZWvzj4S2SETDevr0pw/edit?usp=sharing
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1-HKQVHc2H1sRljCJYMSkFLuDaZWvzj4S2SETDevr0pw/edit?usp=sharing)
 
 ![url_structure](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/url_structure.png)
 
