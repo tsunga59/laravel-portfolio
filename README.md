@@ -63,12 +63,12 @@ URL: https://acmo-app.com
 * draw.io(ER図・インフラ構成図作成)
 * Nortion(タスク管理・開発メモ)
 
-#### ワイヤーフレーム
+## ワイヤーフレーム
 
 [Figma](https://www.figma.com/file/PlVDANTbGP1jRUfpvCG3Df/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?node-id=0%3A1)
 ![wireframe](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/wireframe.png)
 
-#### URL設計
+## URL設計
 
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1-HKQVHc2H1sRljCJYMSkFLuDaZWvzj4S2SETDevr0pw/edit?usp=sharing)
 
@@ -78,7 +78,7 @@ URL: https://acmo-app.com
 
 ![table_structure](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/table_structure.png)
 
-#### インフラ設計(構成図)
+## インフラ設計(構成図)
 
 ![aws_structure](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/aws_structure.png)
 
