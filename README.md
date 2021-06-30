@@ -66,6 +66,7 @@ URL: https://acmo-app.com
 #### ワイヤーフレーム
 
 Figma画像
+![sample](https://raw.githubusercontent.com/wiki/tsunga59/laravel-portfolio/wireframe.png)
 
 #### URL設計
 
