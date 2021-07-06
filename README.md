@@ -61,7 +61,7 @@ URL: https://acmo-app.com
 * Git/Github(ソースコード・バージョン管理)
 * Figma(ワイヤー作成)
 * draw.io(ER図・インフラ構成図作成)
-* Nortion(タスク管理・開発メモ)
+* Notion(タスク管理・開発メモ)
 
 ## ワイヤーフレーム
 
